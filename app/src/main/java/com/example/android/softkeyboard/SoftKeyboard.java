@@ -21,6 +21,7 @@ import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
 import android.text.InputType;
 import android.text.method.MetaKeyKeyListener;
+import android.util.Log;
 import android.view.KeyCharacterMap;
 import android.view.KeyEvent;
 import android.view.View;
@@ -30,8 +31,21 @@ import android.view.inputmethod.InputConnection;
 import android.view.inputmethod.InputMethodManager;
 import android.view.inputmethod.InputMethodSubtype;
 
+import com.vividsolutions.jts.geom.Coordinate;
+import com.vividsolutions.jts.geom.GeometryFactory;
+import com.vividsolutions.jts.geom.LineString;
+import com.vividsolutions.jts.geom.LinearRing;
+import com.vividsolutions.jts.geom.MultiPoint;
+import com.vividsolutions.jts.geom.Polygon;
+import com.vividsolutions.jts.geom.PrecisionModel;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Example of writing an input method for a soft keyboard.  This code is
@@ -300,9 +314,7 @@ public class SoftKeyboard extends InputMethodService
                 CompletionInfo ci = completions[i];
                 if (ci != null) stringList.add(ci.getText().toString());
             }
-            stringList.add("ololo");
-            stringList.add("azazaz");
-            stringList.add("wtf");
+
             //setSuggestions(stringList, true, true);
             setSuggestions(stringList, true, true);
         }
@@ -581,15 +593,71 @@ public class SoftKeyboard extends InputMethodService
             setCandidatesViewShown(true);
         }
         if (mCandidateView != null) {
-            if(suggestions!=null)
-            {
-            suggestions.add("ololo");
-            suggestions.add("azazaz");
-            suggestions.add("wtf");}
+            if(suggestions!=null) {
+                // suggestions.add("ololo");
+                // suggestions.add("azazaz");
+                // suggestions.add("wtf");}
+                List<String> wordGeomPar=geomSuggestions(mComposing.toString());
+                if(wordGeomPar!=null){
+                    suggestions.addAll(wordGeomPar);
+                }
+
+            }
             mCandidateView.setSuggestions(suggestions, completions, typedWordValid);
         }
     }
-    
+
+    List<String> geomSuggestions(String typed){
+        char[] cTyped = typed.toLowerCase().toCharArray();
+        List<String> ls = null;
+        JSONObject Keygeometry = null;
+        try {
+             Keygeometry = new JSONObject("{  \"keyboard\": {    \"q\": {      \"x\": \"0.0\",      \"y\": \"0.0\"    },    \"w\": {      \"x\": \"1.0\",      \"y\": \"0.0\"    },    \"e\": {      \"x\": \"2.0\",      \"y\": \"0.0\"    },    \"r\": {      \"x\": \"3.0\",      \"y\": \"0.0\"    },    \"t\": {      \"x\": \"4.0\",      \"y\": \"0.0\"    },    \"y\": {      \"x\": \"5.0\",      \"y\": \"0.0\"    },    \"u\": {      \"x\": \"6.0\",      \"y\": \"0.0\"    },    \"i\": {      \"x\": \"7.0\",      \"y\": \"0.0\"    },    \"o\": {      \"x\": \"8.0\",      \"y\": \"0.0\"    },    \"p\": {      \"x\": \"9.0\",      \"y\": \"0.0\"    },    \"a\": {      \"x\": \"0.5\",      \"y\": \"1.0\"    },    \"s\": {      \"x\": \"1.5\",      \"y\": \"1.0\"    },    \"d\": {      \"x\": \"2.5\",      \"y\": \"1.0\"    },    \"f\": {      \"x\": \"3.5\",      \"y\": \"1.0\"    },    \"g\": {      \"x\": \"4.5\",      \"y\": \"1.0\"    },    \"h\": {      \"x\": \"5.5\",      \"y\": \"1.0\"    },    \"j\": {      \"x\": \"6.5\",      \"y\": \"1.0\"    },    \"k\": {      \"x\": \"7.5\",      \"y\": \"1.0\"    },    \"l\": {      \"x\": \"8.5\",      \"y\": \"1.0\"    },    \"z\": {      \"x\": \"1.5\",      \"y\": \"2.0\"    },    \"x\": {      \"x\": \"2.5\",      \"y\": \"2.0\"    },    \"c\": {      \"x\": \"3.5\",      \"y\": \"2.0\"    },    \"v\": {      \"x\": \"4.5\",      \"y\": \"2.0\"    },    \"b\": {      \"x\": \"5.5\",      \"y\": \"2.0\"    },    \"n\": {      \"x\": \"6.5\",      \"y\": \"2.0\"    },    \"m\": {      \"x\": \"7.5\",      \"y\": \"2.0\"    }  }}");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        GeometryFactory gf = new GeometryFactory(new PrecisionModel(0.001));
+        JSONObject Keyboard = null;
+        JSONObject key = null;
+        double x = 0;
+        double y = 0;
+        String coord = null;
+        Coordinate[] coordinates =new Coordinate[typed.length()+1];
+        if (typed.length()>3) {
+            for (int i = 0; i < typed.length(); i++) {
+                if (Keygeometry != null) {
+                    try {
+
+                        Keyboard = Keygeometry.getJSONObject("keyboard");
+                        key = Keyboard.getJSONObject(Character.toString(cTyped[i]));
+                        x = key.getDouble("x");
+                        y = key.getDouble("y");
+                        coord += "("+x+","+y+"),";
+                        Coordinate cTemp = new Coordinate(x, y);
+                        coordinates[i] = cTemp;
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+            }
+            coordinates[typed.length()] = coordinates[0];
+            Log.d("Coordinates",coord) ;
+            LinearRing[] empty = new LinearRing[0];
+
+            LinearRing geomWord = gf.createLinearRing(coordinates);
+            Polygon pl = gf.createPolygon(geomWord);
+
+            ls = new ArrayList<String>();
+            ls.add("" + pl.getArea());
+            ls.add("" + pl.getLength());
+        }
+
+        return ls;
+
+    }
+
+
     private void handleBackspace() {
         final int length = mComposing.length();
         if (length > 1) {
