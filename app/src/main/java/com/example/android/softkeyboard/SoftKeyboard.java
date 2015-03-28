@@ -39,6 +39,7 @@ import com.vividsolutions.jts.geom.MultiPoint;
 import com.vividsolutions.jts.geom.Polygon;
 import com.vividsolutions.jts.geom.PrecisionModel;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -89,15 +90,19 @@ public class SoftKeyboard extends InputMethodService
     private LatinKeyboard mCurKeyboard;
     
     private String mWordSeparators;
-    
-    /**
-     * Main initialization of the input method component.  Be sure to call
-     * to super class.
-     */
+    private String cppJsonString;
+    private JSONObject cppJson;
+
+        /**
+         * Main initialization of the input method component.  Be sure to call
+         * to super class.
+         */
     @Override public void onCreate() {
         super.onCreate();
         mInputMethodManager = (InputMethodManager)getSystemService(INPUT_METHOD_SERVICE);
         mWordSeparators = getResources().getString(R.string.word_separators);
+
+
     }
     
     /**
@@ -129,6 +134,10 @@ public class SoftKeyboard extends InputMethodService
                 R.layout.input, null);
         mInputView.setOnKeyboardActionListener(this);
         mInputView.setKeyboard(mQwertyKeyboard);
+
+
+
+
         return mInputView;
     }
 
@@ -265,6 +274,1538 @@ public class SoftKeyboard extends InputMethodService
         mInputView.closing();
         final InputMethodSubtype subtype = mInputMethodManager.getCurrentInputMethodSubtype();
         mInputView.setSubtypeOnSpaceKey(subtype);
+
+
+         cppJsonString = "{\"KeyWord\": [\n" +
+                 "      { \"-name\": \"#define\" },\n" +
+                 "      { \"-name\": \"#elif\" },\n" +
+                 "      { \"-name\": \"#else\" },\n" +
+                 "      { \"-name\": \"#endif\" },\n" +
+                 "      { \"-name\": \"#error\" },\n" +
+                 "      { \"-name\": \"#if\" },\n" +
+                 "      { \"-name\": \"#ifdef\" },\n" +
+                 "      { \"-name\": \"#ifndef\" },\n" +
+                 "      { \"-name\": \"#include\" },\n" +
+                 "      { \"-name\": \"#line\" },\n" +
+                 "      { \"-name\": \"#pragma\" },\n" +
+                 "      { \"-name\": \"#undef\" },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"abort\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"void\",\n" +
+                 "          \"Param\": { \"-name\": \"void\" }\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"abs\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"int\",\n" +
+                 "          \"Param\": { \"-name\": \"int i\" }\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      { \"-name\": \"absread\" },\n" +
+                 "      { \"-name\": \"abswrite\" },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"access\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"int\",\n" +
+                 "          \"Param\": [\n" +
+                 "            { \"-name\": \"const char *path\" },\n" +
+                 "            { \"-name\": \"int amode\" }\n" +
+                 "          ]\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      { \"-name\": \"accumulate\" },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"acos\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"double\",\n" +
+                 "          \"Param\": { \"-name\": \"double x\" }\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      { \"-name\": \"acosl\" },\n" +
+                 "      { \"-name\": \"address\" },\n" +
+                 "      { \"-name\": \"adjacent_difference\" },\n" +
+                 "      { \"-name\": \"adjacent_find\" },\n" +
+                 "      { \"-name\": \"advance\" },\n" +
+                 "      { \"-name\": \"allocate\" },\n" +
+                 "      { \"-name\": \"allocator\" },\n" +
+                 "      { \"-name\": \"allocmem\" },\n" +
+                 "      { \"-name\": \"always_noconv\" },\n" +
+                 "      { \"-name\": \"any\" },\n" +
+                 "      { \"-name\": \"append\" },\n" +
+                 "      { \"-name\": \"arc\" },\n" +
+                 "      { \"-name\": \"arg\" },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"asctime\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"char*\",\n" +
+                 "          \"Param\": { \"-name\": \"const struct tm *timeptr\" }\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"asin\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"double\",\n" +
+                 "          \"Param\": { \"-name\": \"double x\" }\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      { \"-name\": \"asinl\" },\n" +
+                 "      { \"-name\": \"asm\" },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"assert\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"void\",\n" +
+                 "          \"Param\": { \"-name\": \"int expression\" }\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      { \"-name\": \"assign\" },\n" +
+                 "      { \"-name\": \"at\" },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"atan\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"double\",\n" +
+                 "          \"Param\": { \"-name\": \"double x\" }\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"atan2\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"double\",\n" +
+                 "          \"Param\": [\n" +
+                 "            { \"-name\": \"double y\" },\n" +
+                 "            { \"-name\": \"double x\" }\n" +
+                 "          ]\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      { \"-name\": \"atan2l\" },\n" +
+                 "      { \"-name\": \"atanl\" },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"atexit\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"int\",\n" +
+                 "          \"Param\": { \"-name\": \"void (*func)(void)\" }\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"atof\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"double\",\n" +
+                 "          \"Param\": { \"-name\": \"const char *nptr\" }\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"atoi\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"int\",\n" +
+                 "          \"Param\": { \"-name\": \"const char *nptr\" }\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"atol\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"long int\",\n" +
+                 "          \"Param\": { \"-name\": \"const char *nptr\" }\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      { \"-name\": \"auto\" },\n" +
+                 "      { \"-name\": \"auto_ptr\" },\n" +
+                 "      { \"-name\": \"back\" },\n" +
+                 "      { \"-name\": \"back_inserter\" },\n" +
+                 "      { \"-name\": \"back_insert_iterator\" },\n" +
+                 "      { \"-name\": \"bad\" },\n" +
+                 "      { \"-name\": \"bar\" },\n" +
+                 "      { \"-name\": \"bar3d\" },\n" +
+                 "      { \"-name\": \"basic_string\" },\n" +
+                 "      { \"-name\": \"bcd\" },\n" +
+                 "      { \"-name\": \"bdos\" },\n" +
+                 "      { \"-name\": \"bdosptr\" },\n" +
+                 "      { \"-name\": \"begin\" },\n" +
+                 "      { \"-name\": \"bidirectional_iterator\" },\n" +
+                 "      { \"-name\": \"binary_function\" },\n" +
+                 "      { \"-name\": \"binary_negate\" },\n" +
+                 "      { \"-name\": \"binary_search\" },\n" +
+                 "      { \"-name\": \"bind1st\" },\n" +
+                 "      { \"-name\": \"bind2nd\" },\n" +
+                 "      { \"-name\": \"binder1st\" },\n" +
+                 "      { \"-name\": \"binder2nd\" },\n" +
+                 "      { \"-name\": \"bioscom\" },\n" +
+                 "      { \"-name\": \"biosdisk\" },\n" +
+                 "      { \"-name\": \"biosequip\" },\n" +
+                 "      { \"-name\": \"bioskey\" },\n" +
+                 "      { \"-name\": \"biosmemory\" },\n" +
+                 "      { \"-name\": \"biosprint\" },\n" +
+                 "      { \"-name\": \"biostime\" },\n" +
+                 "      { \"-name\": \"bitset\" },\n" +
+                 "      { \"-name\": \"bool\" },\n" +
+                 "      { \"-name\": \"boolalpha\" },\n" +
+                 "      { \"-name\": \"break\" },\n" +
+                 "      { \"-name\": \"brk\" },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"bsearch\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"void *\",\n" +
+                 "          \"Param\": [\n" +
+                 "            { \"-name\": \"const void *key\" },\n" +
+                 "            { \"-name\": \"const void *base\" },\n" +
+                 "            { \"-name\": \"size_t nmemb\" },\n" +
+                 "            { \"-name\": \"size_t size\" },\n" +
+                 "            { \"-name\": \"int (*compar)(const void *, const void *)\" }\n" +
+                 "          ]\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      { \"-name\": \"cabs\" },\n" +
+                 "      { \"-name\": \"cabsl\" },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"calloc\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"void *\",\n" +
+                 "          \"Param\": [\n" +
+                 "            { \"-name\": \"size_t nmemb\" },\n" +
+                 "            { \"-name\": \"size_t size\" }\n" +
+                 "          ]\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      { \"-name\": \"capacity\" },\n" +
+                 "      { \"-name\": \"case\" },\n" +
+                 "      { \"-name\": \"catch\" },\n" +
+                 "      { \"-name\": \"category\" },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"ceil\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"double\",\n" +
+                 "          \"Param\": { \"-name\": \"double x\" }\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      { \"-name\": \"ceill\" },\n" +
+                 "      { \"-name\": \"cerr\" },\n" +
+                 "      { \"-name\": \"cgets\" },\n" +
+                 "      { \"-name\": \"char\" },\n" +
+                 "      { \"-name\": \"char_type\" },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"chdir\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"int\",\n" +
+                 "          \"Param\": { \"-name\": \"const char *path\" }\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"chmod\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"int\",\n" +
+                 "          \"Param\": [\n" +
+                 "            { \"-name\": \"const char *path\" },\n" +
+                 "            { \"-name\": \"mode_t mode\" }\n" +
+                 "          ]\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      { \"-name\": \"chsize\" },\n" +
+                 "      { \"-name\": \"cin\" },\n" +
+                 "      { \"-name\": \"circle\" },\n" +
+                 "      { \"-name\": \"class\" },\n" +
+                 "      { \"-name\": \"classic_table\" },\n" +
+                 "      { \"-name\": \"clear\" },\n" +
+                 "      { \"-name\": \"cleardevice\" },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"clearerr\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"void\",\n" +
+                 "          \"Param\": { \"-name\": \"FILE *stream\" }\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      { \"-name\": \"clearviewport\" },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"clock\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"clock_t\",\n" +
+                 "          \"Param\": { \"-name\": \"void\" }\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      { \"-name\": \"clog\" },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"close\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"int\",\n" +
+                 "          \"Param\": { \"-name\": \"int filedes\" }\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"closedir\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"int\",\n" +
+                 "          \"Param\": { \"-name\": \"DIR *dirp\" }\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      { \"-name\": \"closegraph\" },\n" +
+                 "      { \"-name\": \"clreol\" },\n" +
+                 "      { \"-name\": \"clrscr\" },\n" +
+                 "      { \"-name\": \"compare\" },\n" +
+                 "      { \"-name\": \"complex\" },\n" +
+                 "      { \"-name\": \"conj\" },\n" +
+                 "      { \"-name\": \"const\" },\n" +
+                 "      { \"-name\": \"construct\" },\n" +
+                 "      { \"-name\": \"const_cast\" },\n" +
+                 "      { \"-name\": \"const_pointer\" },\n" +
+                 "      { \"-name\": \"const_reference\" },\n" +
+                 "      { \"-name\": \"container\" },\n" +
+                 "      { \"-name\": \"continue\" },\n" +
+                 "      { \"-name\": \"copy\" },\n" +
+                 "      { \"-name\": \"copyfmt\" },\n" +
+                 "      { \"-name\": \"copy_backward\" },\n" +
+                 "      { \"-name\": \"coreleft\" },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"cos\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"double\",\n" +
+                 "          \"Param\": { \"-name\": \"double x\" }\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"cosh\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"double\",\n" +
+                 "          \"Param\": { \"-name\": \"double x\" }\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      { \"-name\": \"coshl\" },\n" +
+                 "      { \"-name\": \"cosl\" },\n" +
+                 "      { \"-name\": \"count\" },\n" +
+                 "      { \"-name\": \"country\" },\n" +
+                 "      { \"-name\": \"count_if\" },\n" +
+                 "      { \"-name\": \"cout\" },\n" +
+                 "      { \"-name\": \"cprintf\" },\n" +
+                 "      { \"-name\": \"cputs\" },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"creat\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"int\",\n" +
+                 "          \"Param\": [\n" +
+                 "            { \"-name\": \"const char *path\" },\n" +
+                 "            { \"-name\": \"mode_t mode\" }\n" +
+                 "          ]\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      { \"-name\": \"creatnew\" },\n" +
+                 "      { \"-name\": \"creattemp\" },\n" +
+                 "      { \"-name\": \"cscanf\" },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"ctime\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"char *\",\n" +
+                 "          \"Param\": { \"-name\": \"const time_t *timer\" }\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      { \"-name\": \"ctrlbrk\" },\n" +
+                 "      { \"-name\": \"curr_symbol\" },\n" +
+                 "      { \"-name\": \"c_str\" },\n" +
+                 "      { \"-name\": \"data\" },\n" +
+                 "      { \"-name\": \"date_order\" },\n" +
+                 "      { \"-name\": \"deallocate\" },\n" +
+                 "      { \"-name\": \"dec\" },\n" +
+                 "      { \"-name\": \"decimal_point\" },\n" +
+                 "      { \"-name\": \"default\" },\n" +
+                 "      { \"-name\": \"delay\" },\n" +
+                 "      { \"-name\": \"delete\" },\n" +
+                 "      { \"-name\": \"delline\" },\n" +
+                 "      { \"-name\": \"denorm_min\" },\n" +
+                 "      { \"-name\": \"deque\" },\n" +
+                 "      { \"-name\": \"destroy\" },\n" +
+                 "      { \"-name\": \"detectgraph\" },\n" +
+                 "      { \"-name\": \"difference_type\" },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"difftime\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"double\",\n" +
+                 "          \"Param\": [\n" +
+                 "            { \"-name\": \"time_t time1\" },\n" +
+                 "            { \"-name\": \"time_t time0\" }\n" +
+                 "          ]\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      { \"-name\": \"digits\" },\n" +
+                 "      { \"-name\": \"digits10\" },\n" +
+                 "      { \"-name\": \"disable\" },\n" +
+                 "      { \"-name\": \"distance\" },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"div\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"div_t\",\n" +
+                 "          \"Param\": [\n" +
+                 "            { \"-name\": \"int numer\" },\n" +
+                 "            { \"-name\": \"int denom\" }\n" +
+                 "          ]\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      { \"-name\": \"divides\" },\n" +
+                 "      { \"-name\": \"dllexport\" },\n" +
+                 "      { \"-name\": \"dllexport2\" },\n" +
+                 "      { \"-name\": \"dllimport\" },\n" +
+                 "      { \"-name\": \"dllimport2\" },\n" +
+                 "      { \"-name\": \"do\" },\n" +
+                 "      { \"-name\": \"dosexterr\" },\n" +
+                 "      { \"-name\": \"dostounix\" },\n" +
+                 "      { \"-name\": \"double\" },\n" +
+                 "      { \"-name\": \"do_always_noconv\" },\n" +
+                 "      { \"-name\": \"do_close\" },\n" +
+                 "      { \"-name\": \"do_compare\" },\n" +
+                 "      { \"-name\": \"do_curr_symbol\" },\n" +
+                 "      { \"-name\": \"do_decimal_point\" },\n" +
+                 "      { \"-name\": \"do_encoding\" },\n" +
+                 "      { \"-name\": \"do_get\" },\n" +
+                 "      { \"-name\": \"do_grouping\" },\n" +
+                 "      { \"-name\": \"do_hash\" },\n" +
+                 "      { \"-name\": \"do_in\" },\n" +
+                 "      { \"-name\": \"do_is\" },\n" +
+                 "      { \"-name\": \"do_length\" },\n" +
+                 "      { \"-name\": \"do_max_length\" },\n" +
+                 "      { \"-name\": \"do_narrow\" },\n" +
+                 "      { \"-name\": \"do_neg_format\" },\n" +
+                 "      { \"-name\": \"do_open\" },\n" +
+                 "      { \"-name\": \"do_out\" },\n" +
+                 "      { \"-name\": \"do_pos_format\" },\n" +
+                 "      { \"-name\": \"do_scan_is\" },\n" +
+                 "      { \"-name\": \"do_scan_not\" },\n" +
+                 "      { \"-name\": \"do_thousands_sep\" },\n" +
+                 "      { \"-name\": \"do_tolower\" },\n" +
+                 "      { \"-name\": \"do_toupper\" },\n" +
+                 "      { \"-name\": \"do_transform\" },\n" +
+                 "      { \"-name\": \"do_widen\" },\n" +
+                 "      { \"-name\": \"drawpoly\" },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"dup\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"int\",\n" +
+                 "          \"Param\": { \"-name\": \"int filedes\" }\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"dup2\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"int\",\n" +
+                 "          \"Param\": [\n" +
+                 "            { \"-name\": \"int filedes\" },\n" +
+                 "            { \"-name\": \"int filedes2\" }\n" +
+                 "          ]\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      { \"-name\": \"dynamic_cast\" },\n" +
+                 "      { \"-name\": \"eback\" },\n" +
+                 "      { \"-name\": \"ecvt\" },\n" +
+                 "      { \"-name\": \"egptr\" },\n" +
+                 "      { \"-name\": \"ellipse\" },\n" +
+                 "      { \"-name\": \"else\" },\n" +
+                 "      { \"-name\": \"empty\" },\n" +
+                 "      { \"-name\": \"enable\" },\n" +
+                 "      { \"-name\": \"encoding\" },\n" +
+                 "      { \"-name\": \"end\" },\n" +
+                 "      { \"-name\": \"endl\" },\n" +
+                 "      { \"-name\": \"ends\" },\n" +
+                 "      { \"-name\": \"enum\" },\n" +
+                 "      { \"-name\": \"eof\" },\n" +
+                 "      { \"-name\": \"epptr\" },\n" +
+                 "      { \"-name\": \"epsilon\" },\n" +
+                 "      { \"-name\": \"eq\" },\n" +
+                 "      { \"-name\": \"equal\" },\n" +
+                 "      { \"-name\": \"equal_range\" },\n" +
+                 "      { \"-name\": \"equal_to\" },\n" +
+                 "      { \"-name\": \"eq_int_type\" },\n" +
+                 "      { \"-name\": \"erase\" },\n" +
+                 "      { \"-name\": \"event_callback\" },\n" +
+                 "      { \"-name\": \"exceptions\" },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"execl\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"int\",\n" +
+                 "          \"Param\": [\n" +
+                 "            { \"-name\": \"const char *path\" },\n" +
+                 "            { \"-name\": \"const char *args\" },\n" +
+                 "            { \"-name\": \"...\" }\n" +
+                 "          ]\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"execle\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"int\",\n" +
+                 "          \"Param\": [\n" +
+                 "            { \"-name\": \"const char *path\" },\n" +
+                 "            { \"-name\": \"const char *args\" },\n" +
+                 "            { \"-name\": \"...\" }\n" +
+                 "          ]\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"execlp\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"int\",\n" +
+                 "          \"Param\": [\n" +
+                 "            { \"-name\": \"const char *file\" },\n" +
+                 "            { \"-name\": \"const char *args\" },\n" +
+                 "            { \"-name\": \"...\" }\n" +
+                 "          ]\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      { \"-name\": \"execlpe\" },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"execv\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"int\",\n" +
+                 "          \"Param\": [\n" +
+                 "            { \"-name\": \"const char *path\" },\n" +
+                 "            {\n" +
+                 "              \"-name\": \"char *const argv[]\"\n" +
+                 "            }\n" +
+                 "          ]\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"execve\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"int\",\n" +
+                 "          \"Param\": [\n" +
+                 "            { \"-name\": \"const char *path\" },\n" +
+                 "            {\n" +
+                 "              \"-name\": \"char *const argv[]\"\n" +
+                 "            },\n" +
+                 "            { \"-name\": \"char *const *envp\" }\n" +
+                 "          ]\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"execvp\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"int\",\n" +
+                 "          \"Param\": [\n" +
+                 "            { \"-name\": \"const char *file\" },\n" +
+                 "            {\n" +
+                 "              \"-name\": \"char *const argv[]\"\n" +
+                 "            }\n" +
+                 "          ]\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      { \"-name\": \"execvpe\" },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"exit\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"void\",\n" +
+                 "          \"Param\": { \"-name\": \"int status\" }\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"exp\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"double\",\n" +
+                 "          \"Param\": { \"-name\": \"double x\" }\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      { \"-name\": \"expl\" },\n" +
+                 "      { \"-name\": \"explicit\" },\n" +
+                 "      { \"-name\": \"extern\" },\n" +
+                 "      { \"-name\": \"extern_type\" },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"fabs\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"double\",\n" +
+                 "          \"Param\": { \"-name\": \"double x\" }\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      { \"-name\": \"fabsl\" },\n" +
+                 "      { \"-name\": \"facet\" },\n" +
+                 "      { \"-name\": \"fail\" },\n" +
+                 "      { \"-name\": \"failed\" },\n" +
+                 "      { \"-name\": \"failure\" },\n" +
+                 "      { \"-name\": \"false\" },\n" +
+                 "      { \"-name\": \"falsename\" },\n" +
+                 "      { \"-name\": \"farcalloc\" },\n" +
+                 "      { \"-name\": \"farcoreleft\" },\n" +
+                 "      { \"-name\": \"farfree\" },\n" +
+                 "      { \"-name\": \"farheapcheck\" },\n" +
+                 "      { \"-name\": \"farheapcheckfree\" },\n" +
+                 "      { \"-name\": \"farheapchecknode\" },\n" +
+                 "      { \"-name\": \"farheapfillfree\" },\n" +
+                 "      { \"-name\": \"farheapwalk\" },\n" +
+                 "      { \"-name\": \"farmalloc\" },\n" +
+                 "      { \"-name\": \"farrealloc\" },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"fclose\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"int\",\n" +
+                 "          \"Param\": { \"-name\": \"File *stream\" }\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      { \"-name\": \"fcloseall\" },\n" +
+                 "      { \"-name\": \"fcvt\" },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"fdopen\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"File *\",\n" +
+                 "          \"Param\": [\n" +
+                 "            { \"-name\": \"int filedes\" },\n" +
+                 "            { \"-name\": \"const char *type\" }\n" +
+                 "          ]\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"feof\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"int\",\n" +
+                 "          \"Param\": { \"-name\": \"FILE *stream\" }\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"ferror\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"int\",\n" +
+                 "          \"Param\": { \"-name\": \"FILE *stream\" }\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"fflush\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"int\",\n" +
+                 "          \"Param\": { \"-name\": \"FILE *stream\" }\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"fgetc\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"int\",\n" +
+                 "          \"Param\": { \"-name\": \"FILE *stream\" }\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      { \"-name\": \"fgetchar\" },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"fgetpos\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"int\",\n" +
+                 "          \"Param\": [\n" +
+                 "            { \"-name\": \"FILE *stream\" },\n" +
+                 "            { \"-name\": \"fpos_t *pos\" }\n" +
+                 "          ]\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"fgets\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"char *\",\n" +
+                 "          \"Param\": [\n" +
+                 "            { \"-name\": \"char *s\" },\n" +
+                 "            { \"-name\": \"int n\" },\n" +
+                 "            { \"-name\": \"FILE *stream\" }\n" +
+                 "          ]\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      { \"-name\": \"filebuf\" },\n" +
+                 "      { \"-name\": \"filelength\" },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"fileno\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"int\",\n" +
+                 "          \"Param\": { \"-name\": \"FILE *stream\" }\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      { \"-name\": \"fill\" },\n" +
+                 "      { \"-name\": \"fillellipse\" },\n" +
+                 "      { \"-name\": \"fillpoly\" },\n" +
+                 "      { \"-name\": \"fill_n\" },\n" +
+                 "      { \"-name\": \"find\" },\n" +
+                 "      { \"-name\": \"findfirst\" },\n" +
+                 "      { \"-name\": \"findnext\" },\n" +
+                 "      { \"-name\": \"find_end\" },\n" +
+                 "      { \"-name\": \"find_first_not_of\" },\n" +
+                 "      { \"-name\": \"find_first_of\" },\n" +
+                 "      { \"-name\": \"find_if\" },\n" +
+                 "      { \"-name\": \"find_last_not_of\" },\n" +
+                 "      { \"-name\": \"find_last_of\" },\n" +
+                 "      { \"-name\": \"fixed\" },\n" +
+                 "      { \"-name\": \"flags\" },\n" +
+                 "      { \"-name\": \"flip\" },\n" +
+                 "      { \"-name\": \"float\" },\n" +
+                 "      { \"-name\": \"floodfill\" },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"floor\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"double\",\n" +
+                 "          \"Param\": { \"-name\": \"double x\" }\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      { \"-name\": \"floorl\" },\n" +
+                 "      { \"-name\": \"flush\" },\n" +
+                 "      { \"-name\": \"flushall\" },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"fmod\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"double\",\n" +
+                 "          \"Param\": [\n" +
+                 "            { \"-name\": \"double x\" },\n" +
+                 "            { \"-name\": \"double y\" }\n" +
+                 "          ]\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      { \"-name\": \"fmodl\" },\n" +
+                 "      { \"-name\": \"fmtflags\" },\n" +
+                 "      { \"-name\": \"fnmerge\" },\n" +
+                 "      { \"-name\": \"fnsplit\" },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"fopen\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"FILE *\",\n" +
+                 "          \"Param\": [\n" +
+                 "            { \"-name\": \"const char * file\" },\n" +
+                 "            { \"-name\": \"const char * mode\" }\n" +
+                 "          ]\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      { \"-name\": \"for\" },\n" +
+                 "      { \"-name\": \"forward_iterator\" },\n" +
+                 "      { \"-name\": \"for_each\" },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"fprintf\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"int\",\n" +
+                 "          \"Param\": [\n" +
+                 "            { \"-name\": \"FILE *stream\" },\n" +
+                 "            { \"-name\": \"const char *format\" },\n" +
+                 "            { \"-name\": \"...\" }\n" +
+                 "          ]\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"fputc\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"int\",\n" +
+                 "          \"Param\": [\n" +
+                 "            { \"-name\": \"int c\" },\n" +
+                 "            { \"-name\": \"FILE *stream\" }\n" +
+                 "          ]\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      { \"-name\": \"fputchar\" },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"fputs\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"int\",\n" +
+                 "          \"Param\": [\n" +
+                 "            { \"-name\": \"const char *s\" },\n" +
+                 "            { \"-name\": \"FILE *stream\" }\n" +
+                 "          ]\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      { \"-name\": \"FP_OFF\" },\n" +
+                 "      { \"-name\": \"FP_SEG\" },\n" +
+                 "      { \"-name\": \"frac_digits\" },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"fread\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"size_t\",\n" +
+                 "          \"Param\": [\n" +
+                 "            { \"-name\": \"void *ptr\" },\n" +
+                 "            { \"-name\": \"size_t size\" },\n" +
+                 "            { \"-name\": \"size_t nmemb\" },\n" +
+                 "            { \"-name\": \"FILE *stream\" }\n" +
+                 "          ]\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"free\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"void\",\n" +
+                 "          \"Param\": { \"-name\": \"void *ptr\" }\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      { \"-name\": \"freemem\" },\n" +
+                 "      { \"-name\": \"freeze\" },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"freopen\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"FILE *\",\n" +
+                 "          \"Param\": [\n" +
+                 "            { \"-name\": \"const char *filename\" },\n" +
+                 "            { \"-name\": \"const char *mode\" },\n" +
+                 "            { \"-name\": \"FILE *stream\" }\n" +
+                 "          ]\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"frexp\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"double\",\n" +
+                 "          \"Param\": [\n" +
+                 "            { \"-name\": \"double value\" },\n" +
+                 "            { \"-name\": \"int *exp\" }\n" +
+                 "          ]\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      { \"-name\": \"frexpl\" },\n" +
+                 "      { \"-name\": \"friend\" },\n" +
+                 "      { \"-name\": \"front\" },\n" +
+                 "      { \"-name\": \"front_inserter\" },\n" +
+                 "      { \"-name\": \"front_insert_iterator\" },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"fscanf\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"int\",\n" +
+                 "          \"Param\": [\n" +
+                 "            { \"-name\": \"FILE *stream\" },\n" +
+                 "            { \"-name\": \"const char *format\" },\n" +
+                 "            { \"-name\": \"...\" }\n" +
+                 "          ]\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"fseek\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"int\",\n" +
+                 "          \"Param\": [\n" +
+                 "            { \"-name\": \"FILE *stream\" },\n" +
+                 "            { \"-name\": \"long int offset\" },\n" +
+                 "            { \"-name\": \"int whence\" }\n" +
+                 "          ]\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"fsetpos\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"int\",\n" +
+                 "          \"Param\": [\n" +
+                 "            { \"-name\": \"FILE *stream\" },\n" +
+                 "            { \"-name\": \"const fpos_t * pos\" }\n" +
+                 "          ]\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"fstat\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"int\",\n" +
+                 "          \"Param\": [\n" +
+                 "            { \"-name\": \"int filedes\" },\n" +
+                 "            { \"-name\": \"struct stat *buf\" }\n" +
+                 "          ]\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      { \"-name\": \"fstream\" },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"ftell\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"long int\",\n" +
+                 "          \"Param\": { \"-name\": \"FILE *stream\" }\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      { \"-name\": \"ftime\" },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"fwrite\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"size_t\",\n" +
+                 "          \"Param\": [\n" +
+                 "            { \"-name\": \"const void *ptr\" },\n" +
+                 "            { \"-name\": \"size_t size\" },\n" +
+                 "            { \"-name\": \"size_t nmemb\" },\n" +
+                 "            { \"-name\": \"FILE *stream\" }\n" +
+                 "          ]\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      { \"-name\": \"gbump\" },\n" +
+                 "      { \"-name\": \"gcount\" },\n" +
+                 "      { \"-name\": \"gcvt\" },\n" +
+                 "      { \"-name\": \"generate\" },\n" +
+                 "      { \"-name\": \"generate_n\" },\n" +
+                 "      { \"-name\": \"geninterrupt\" },\n" +
+                 "      { \"-name\": \"get\" },\n" +
+                 "      { \"-name\": \"getarccoords\" },\n" +
+                 "      { \"-name\": \"getaspectratio\" },\n" +
+                 "      { \"-name\": \"getbkcolor\" },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"getc\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"int\",\n" +
+                 "          \"Param\": { \"-name\": \"FILE *stream\" }\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      { \"-name\": \"getcbrk\" },\n" +
+                 "      { \"-name\": \"getch\" },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"getchar\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"int\",\n" +
+                 "          \"Param\": { \"-name\": \"void\" }\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      { \"-name\": \"getche\" },\n" +
+                 "      { \"-name\": \"getcolor\" },\n" +
+                 "      { \"-name\": \"getcurdir\" },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"getcwd\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"char *\",\n" +
+                 "          \"Param\": [\n" +
+                 "            { \"-name\": \"char *buf\" },\n" +
+                 "            { \"-name\": \"size_t size\" }\n" +
+                 "          ]\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      { \"-name\": \"getdate\" },\n" +
+                 "      { \"-name\": \"getdefaultpalette\" },\n" +
+                 "      { \"-name\": \"getdfree\" },\n" +
+                 "      { \"-name\": \"getdisk\" },\n" +
+                 "      { \"-name\": \"getdrivername\" },\n" +
+                 "      { \"-name\": \"getdta\" },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"getenv\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"char *\",\n" +
+                 "          \"Param\": { \"-name\": \"const char *name\" }\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      { \"-name\": \"getfat\" },\n" +
+                 "      { \"-name\": \"getfatd\" },\n" +
+                 "      { \"-name\": \"getfillpattern\" },\n" +
+                 "      { \"-name\": \"getfillsettings\" },\n" +
+                 "      { \"-name\": \"getftime\" },\n" +
+                 "      { \"-name\": \"getgraphmode\" },\n" +
+                 "      { \"-name\": \"getimage\" },\n" +
+                 "      { \"-name\": \"getline\" },\n" +
+                 "      { \"-name\": \"getlinesettings\" },\n" +
+                 "      { \"-name\": \"getloc\" },\n" +
+                 "      { \"-name\": \"getmaxcolor\" },\n" +
+                 "      { \"-name\": \"getmaxmode\" },\n" +
+                 "      { \"-name\": \"getmaxx\" },\n" +
+                 "      { \"-name\": \"getmaxy\" },\n" +
+                 "      { \"-name\": \"getmodename\" },\n" +
+                 "      { \"-name\": \"getmoderange\" },\n" +
+                 "      { \"-name\": \"getpalette\" },\n" +
+                 "      { \"-name\": \"getpalettesize\" },\n" +
+                 "      { \"-name\": \"getpass\" },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"getpid\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"pid_t\",\n" +
+                 "          \"Param\": { \"-name\": \"void\" }\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      { \"-name\": \"getpixel\" },\n" +
+                 "      { \"-name\": \"getpsp\" },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"gets\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"char *\",\n" +
+                 "          \"Param\": { \"-name\": \"char *s\" }\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      { \"-name\": \"gettext\" },\n" +
+                 "      { \"-name\": \"gettextinfo\" },\n" +
+                 "      { \"-name\": \"gettextsettings\" },\n" +
+                 "      { \"-name\": \"gettime\" },\n" +
+                 "      { \"-name\": \"getvect\" },\n" +
+                 "      { \"-name\": \"getverify\" },\n" +
+                 "      { \"-name\": \"getviewsettings\" },\n" +
+                 "      { \"-name\": \"getw\" },\n" +
+                 "      { \"-name\": \"getx\" },\n" +
+                 "      { \"-name\": \"gety\" },\n" +
+                 "      { \"-name\": \"get_allocator\" },\n" +
+                 "      { \"-name\": \"get_date\" },\n" +
+                 "      { \"-name\": \"get_monthname\" },\n" +
+                 "      { \"-name\": \"get_temporary_buffer\" },\n" +
+                 "      { \"-name\": \"get_time\" },\n" +
+                 "      { \"-name\": \"get_weekday\" },\n" +
+                 "      { \"-name\": \"get_year\" },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"gmtime\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"struct tm *\",\n" +
+                 "          \"Param\": { \"-name\": \"const time_t *timer\" }\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      { \"-name\": \"good\" },\n" +
+                 "      { \"-name\": \"goto\" },\n" +
+                 "      { \"-name\": \"gotoxy\" },\n" +
+                 "      { \"-name\": \"gptr\" },\n" +
+                 "      { \"-name\": \"graphdefaults\" },\n" +
+                 "      { \"-name\": \"grapherrormsg\" },\n" +
+                 "      { \"-name\": \"graphresult\" },\n" +
+                 "      { \"-name\": \"greater\" },\n" +
+                 "      { \"-name\": \"greater_equal\" },\n" +
+                 "      { \"-name\": \"grouping\" },\n" +
+                 "      { \"-name\": \"harderr\" },\n" +
+                 "      { \"-name\": \"hardresume\" },\n" +
+                 "      { \"-name\": \"hardretn\" },\n" +
+                 "      { \"-name\": \"hash\" },\n" +
+                 "      { \"-name\": \"has_denorm\" },\n" +
+                 "      { \"-name\": \"has_infinity\" },\n" +
+                 "      { \"-name\": \"has_quiet_NaN\" },\n" +
+                 "      { \"-name\": \"has_signaling_NaN\" },\n" +
+                 "      { \"-name\": \"heapcheck\" },\n" +
+                 "      { \"-name\": \"heapcheckfree\" },\n" +
+                 "      { \"-name\": \"heapchecknode\" },\n" +
+                 "      { \"-name\": \"heapfillfree\" },\n" +
+                 "      { \"-name\": \"heapwalk\" },\n" +
+                 "      { \"-name\": \"hex\" },\n" +
+                 "      { \"-name\": \"highvideo\" },\n" +
+                 "      { \"-name\": \"hypot\" },\n" +
+                 "      { \"-name\": \"hypotl\" },\n" +
+                 "      { \"-name\": \"id\" },\n" +
+                 "      { \"-name\": \"if\" },\n" +
+                 "      { \"-name\": \"ifstream\" },\n" +
+                 "      { \"-name\": \"ignore\" },\n" +
+                 "      { \"-name\": \"imag\" },\n" +
+                 "      { \"-name\": \"imagesize\" },\n" +
+                 "      { \"-name\": \"imbue\" },\n" +
+                 "      { \"-name\": \"in\" },\n" +
+                 "      { \"-name\": \"includes\" },\n" +
+                 "      { \"-name\": \"infinity\" },\n" +
+                 "      { \"-name\": \"init\" },\n" +
+                 "      { \"-name\": \"initgraph\" },\n" +
+                 "      { \"-name\": \"inline\" },\n" +
+                 "      { \"-name\": \"inner_product\" },\n" +
+                 "      { \"-name\": \"inp\" },\n" +
+                 "      { \"-name\": \"inplace_merge\" },\n" +
+                 "      { \"-name\": \"inport\" },\n" +
+                 "      { \"-name\": \"inportb\" },\n" +
+                 "      { \"-name\": \"input_iterator\" },\n" +
+                 "      { \"-name\": \"inpw\" },\n" +
+                 "      { \"-name\": \"insert\" },\n" +
+                 "      { \"-name\": \"inserter\" },\n" +
+                 "      { \"-name\": \"insert_iterator\" },\n" +
+                 "      { \"-name\": \"insline\" },\n" +
+                 "      { \"-name\": \"installuserdriver\" },\n" +
+                 "      { \"-name\": \"installuserfont\" },\n" +
+                 "      { \"-name\": \"int\" },\n" +
+                 "      { \"-name\": \"int86\" },\n" +
+                 "      { \"-name\": \"int86x\" },\n" +
+                 "      { \"-name\": \"intdos\" },\n" +
+                 "      { \"-name\": \"intdosx\" },\n" +
+                 "      { \"-name\": \"internal\" },\n" +
+                 "      { \"-name\": \"intern_type\" },\n" +
+                 "      { \"-name\": \"Intl\" },\n" +
+                 "      { \"-name\": \"intr\" },\n" +
+                 "      { \"-name\": \"int_type\" },\n" +
+                 "      { \"-name\": \"ioctl\" },\n" +
+                 "      { \"-name\": \"ios\" },\n" +
+                 "      { \"-name\": \"iostate\" },\n" +
+                 "      { \"-name\": \"ios_type\" },\n" +
+                 "      { \"-name\": \"is\" },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"isalnum\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"int\",\n" +
+                 "          \"Param\": { \"-name\": \"int c\" }\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"isalpha\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"int\",\n" +
+                 "          \"Param\": { \"-name\": \"int c\" }\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      { \"-name\": \"isascii\" },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"isatty\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"int\",\n" +
+                 "          \"Param\": { \"-name\": \"int filedes\" }\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"iscntrl\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"int\",\n" +
+                 "          \"Param\": { \"-name\": \"int c\" }\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"isdigit\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"int\",\n" +
+                 "          \"Param\": { \"-name\": \"int c\" }\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"isgraph\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"int\",\n" +
+                 "          \"Param\": { \"-name\": \"int c\" }\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"islower\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"int\",\n" +
+                 "          \"Param\": { \"-name\": \"int c\" }\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"isprint\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"int\",\n" +
+                 "          \"Param\": { \"-name\": \"int c\" }\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"ispunct\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"int\",\n" +
+                 "          \"Param\": { \"-name\": \"int c\" }\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"isspace\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"int\",\n" +
+                 "          \"Param\": { \"-name\": \"int c\" }\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      { \"-name\": \"istream\" },\n" +
+                 "      { \"-name\": \"istream_type\" },\n" +
+                 "      { \"-name\": \"istringstream\" },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"isupper\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"int\",\n" +
+                 "          \"Param\": { \"-name\": \"int c\" }\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"isxdigit\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"int\",\n" +
+                 "          \"Param\": { \"-name\": \"int c\" }\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      { \"-name\": \"is_bounded\" },\n" +
+                 "      { \"-name\": \"is_exact\" },\n" +
+                 "      { \"-name\": \"is_iec559\" },\n" +
+                 "      { \"-name\": \"is_integer\" },\n" +
+                 "      { \"-name\": \"is_modulo\" },\n" +
+                 "      { \"-name\": \"is_open\" },\n" +
+                 "      { \"-name\": \"is_signed\" },\n" +
+                 "      { \"-name\": \"is_specialized\" },\n" +
+                 "      { \"-name\": \"is_sync\" },\n" +
+                 "      { \"-name\": \"iter_swap\" },\n" +
+                 "      { \"-name\": \"iter_type\" },\n" +
+                 "      { \"-name\": \"itoa\" },\n" +
+                 "      { \"-name\": \"iword\" },\n" +
+                 "      { \"-name\": \"kbhit\" },\n" +
+                 "      { \"-name\": \"keep\" },\n" +
+                 "      { \"-name\": \"key_comp\" },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"labs\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"long int\",\n" +
+                 "          \"Param\": { \"-name\": \"long int i\" }\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"ldexp\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"double\",\n" +
+                 "          \"Param\": [\n" +
+                 "            { \"-name\": \"double x\" },\n" +
+                 "            { \"-name\": \"int exp\" }\n" +
+                 "          ]\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      { \"-name\": \"ldexpl\" },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"ldiv\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"ldiv_t\",\n" +
+                 "          \"Param\": [\n" +
+                 "            { \"-name\": \"long int numer\" },\n" +
+                 "            { \"-name\": \"long int denom\" }\n" +
+                 "          ]\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      { \"-name\": \"left\" },\n" +
+                 "      { \"-name\": \"length\" },\n" +
+                 "      { \"-name\": \"less\" },\n" +
+                 "      { \"-name\": \"less_equal\" },\n" +
+                 "      { \"-name\": \"lexicographical_compare\" },\n" +
+                 "      { \"-name\": \"lfind\" },\n" +
+                 "      { \"-name\": \"line\" },\n" +
+                 "      { \"-name\": \"linerel\" },\n" +
+                 "      { \"-name\": \"lineto\" },\n" +
+                 "      { \"-name\": \"list\" },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"localeconv\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"struct lconv *\",\n" +
+                 "          \"Param\": { \"-name\": \"void\" }\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"localtime\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"struct tm *\",\n" +
+                 "          \"Param\": { \"-name\": \"const time_t *timer\" }\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      { \"-name\": \"lock\" },\n" +
+                 "      { \"-name\": \"locking\" },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"log\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"double\",\n" +
+                 "          \"Param\": { \"-name\": \"double x\" }\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"log10\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"double\",\n" +
+                 "          \"Param\": { \"-name\": \"double x\" }\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      { \"-name\": \"log10l\" },\n" +
+                 "      { \"-name\": \"logical_and\" },\n" +
+                 "      { \"-name\": \"logical_not\" },\n" +
+                 "      { \"-name\": \"logical_or\" },\n" +
+                 "      { \"-name\": \"logl\" },\n" +
+                 "      { \"-name\": \"long\" },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"longjmp\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"void\",\n" +
+                 "          \"Param\": [\n" +
+                 "            { \"-name\": \"jmp_buf env\" },\n" +
+                 "            { \"-name\": \"int val\" }\n" +
+                 "          ]\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      { \"-name\": \"lower_bound\" },\n" +
+                 "      { \"-name\": \"lowvideo\" },\n" +
+                 "      { \"-name\": \"lsearch\" },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"lseek\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"off_t\",\n" +
+                 "          \"Param\": [\n" +
+                 "            { \"-name\": \"int filedes\" },\n" +
+                 "            { \"-name\": \"off_t offset\" },\n" +
+                 "            { \"-name\": \"int whence\" }\n" +
+                 "          ]\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      { \"-name\": \"lt\" },\n" +
+                 "      { \"-name\": \"ltoa\" },\n" +
+                 "      { \"-name\": \"make_heap\" },\n" +
+                 "      { \"-name\": \"make_pair\" },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"malloc\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"void\",\n" +
+                 "          \"Param\": { \"-name\": \"size_t size\" }\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      { \"-name\": \"map\" },\n" +
+                 "      { \"-name\": \"matherr\" },\n" +
+                 "      { \"-name\": \"max\" },\n" +
+                 "      { \"-name\": \"max_element\" },\n" +
+                 "      { \"-name\": \"max_exponent\" },\n" +
+                 "      { \"-name\": \"max_exponent10\" },\n" +
+                 "      { \"-name\": \"max_length\" },\n" +
+                 "      { \"-name\": \"max_size\" },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"mblen\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"int\",\n" +
+                 "          \"Param\": [\n" +
+                 "            { \"-name\": \"const char *s\" },\n" +
+                 "            { \"-name\": \"size_t n\" }\n" +
+                 "          ]\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"mbstowcs\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"size_t\",\n" +
+                 "          \"Param\": [\n" +
+                 "            { \"-name\": \"wchar_t *pwcs\" },\n" +
+                 "            { \"-name\": \"const char *s\" },\n" +
+                 "            { \"-name\": \"size_t n\" }\n" +
+                 "          ]\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"mbtowc\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"int\",\n" +
+                 "          \"Param\": [\n" +
+                 "            { \"-name\": \"wchar_t *pwc\" },\n" +
+                 "            { \"-name\": \"const char *s\" },\n" +
+                 "            { \"-name\": \"size_t n\" }\n" +
+                 "          ]\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      { \"-name\": \"memccpy\" },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"memchr\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"void *\",\n" +
+                 "          \"Param\": [\n" +
+                 "            { \"-name\": \"const void *s\" },\n" +
+                 "            { \"-name\": \"int c\" },\n" +
+                 "            { \"-name\": \"size_t n\" }\n" +
+                 "          ]\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"memcmp\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"int\",\n" +
+                 "          \"Param\": [\n" +
+                 "            { \"-name\": \"const void *s1\" },\n" +
+                 "            { \"-name\": \"const void *s2\" },\n" +
+                 "            { \"-name\": \"size_t n\" }\n" +
+                 "          ]\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"memcpy\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"void *\",\n" +
+                 "          \"Param\": [\n" +
+                 "            { \"-name\": \"void *s1\" },\n" +
+                 "            { \"-name\": \"const void *s2\" },\n" +
+                 "            { \"-name\": \"size_t n\" }\n" +
+                 "          ]\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      { \"-name\": \"memicmp\" },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"memmove\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"void *\",\n" +
+                 "          \"Param\": [\n" +
+                 "            { \"-name\": \"void * s1\" },\n" +
+                 "            { \"-name\": \"const void *s2\" },\n" +
+                 "            { \"-name\": \"size_t n\" }\n" +
+                 "          ]\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"memset\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"void *\",\n" +
+                 "          \"Param\": [\n" +
+                 "            { \"-name\": \"void *s\" },\n" +
+                 "            { \"-name\": \"int c\" },\n" +
+                 "            { \"-name\": \"size_t n\" }\n" +
+                 "          ]\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      { \"-name\": \"merge\" },\n" +
+                 "      { \"-name\": \"min\" },\n" +
+                 "      { \"-name\": \"minus\" },\n" +
+                 "      { \"-name\": \"min_element\" },\n" +
+                 "      { \"-name\": \"min_exponent\" },\n" +
+                 "      { \"-name\": \"min_exponent10\" },\n" +
+                 "      { \"-name\": \"mismatch\" },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"mkdir\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"int\",\n" +
+                 "          \"Param\": [\n" +
+                 "            { \"-name\": \"const char *path\" },\n" +
+                 "            { \"-name\": \"mode_t mode\" }\n" +
+                 "          ]\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      { \"-name\": \"mktemp\" },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"mktime\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"time_t\",\n" +
+                 "          \"Param\": { \"-name\": \"struct tm *timer\" }\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      { \"-name\": \"MK_FP\" },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"modf\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"double\",\n" +
+                 "          \"Param\": [\n" +
+                 "            { \"-name\": \"double value\" },\n" +
+                 "            { \"-name\": \"double *iptr\" }\n" +
+                 "          ]\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      { \"-name\": \"modfl\" },\n" +
+                 "      { \"-name\": \"modulus\" },\n" +
+                 "      { \"-name\": \"move\" },\n" +
+                 "      { \"-name\": \"movedata\" },\n" +
+                 "      { \"-name\": \"moverel\" },\n" +
+                 "      { \"-name\": \"movetext\" },\n" +
+                 "      { \"-name\": \"moveto\" },\n" +
+                 "      { \"-name\": \"movmem\" },\n" +
+                 "      { \"-name\": \"multimap\" },\n" +
+                 "      { \"-name\": \"multiset\" },\n" +
+                 "      { \"-name\": \"mutable\" },\n" +
+                 "      { \"-name\": \"name\" },\n" +
+                 "      { \"-name\": \"namespace\" },\n" +
+                 "      { \"-name\": \"narrow\" },\n" +
+                 "      { \"-name\": \"negate\" },\n" +
+                 "      { \"-name\": \"negative_sign\" },\n" +
+                 "      { \"-name\": \"neg_format\" },\n" +
+                 "      { \"-name\": \"new\" },\n" +
+                 "      { \"-name\": \"next_permutation\" },\n" +
+                 "      { \"-name\": \"noboolalpha\" },\n" +
+                 "      { \"-name\": \"none\" },\n" +
+                 "      { \"-name\": \"norm\" },\n" +
+                 "      { \"-name\": \"normvideo\" },\n" +
+                 "      { \"-name\": \"noshowbase\" },\n" +
+                 "      { \"-name\": \"noshowpoint\" },\n" +
+                 "      { \"-name\": \"noshowpos\" },\n" +
+                 "      { \"-name\": \"noskipws\" },\n" +
+                 "      { \"-name\": \"nosound\" },\n" +
+                 "      { \"-name\": \"not1\" },\n" +
+                 "      { \"-name\": \"not2\" },\n" +
+                 "      { \"-name\": \"not_eof\" },\n" +
+                 "      { \"-name\": \"not_equal_to\" },\n" +
+                 "      { \"-name\": \"nounitbuf\" },\n" +
+                 "      { \"-name\": \"nouppercase\" },\n" +
+                 "      { \"-name\": \"nth_element\" },\n" +
+                 "      { \"-name\": \"numeric_limits\" },\n" +
+                 "      { \"-name\": \"oct\" },\n" +
+                 "      { \"-name\": \"off_type\" },\n" +
+                 "      { \"-name\": \"ofstream\" },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"open\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"int\",\n" +
+                 "          \"Param\": [\n" +
+                 "            { \"-name\": \"const char *path\" },\n" +
+                 "            { \"-name\": \"int oflag\" },\n" +
+                 "            { \"-name\": \"...\" }\n" +
+                 "          ]\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      {\n" +
+                 "        \"-name\": \"opendir\",\n" +
+                 "        \"-func\": \"yes\",\n" +
+                 "        \"Overload\": {\n" +
+                 "          \"-retVal\": \"DIR *\",\n" +
+                 "          \"Param\": { \"-name\": \"const char *dirname\" }\n" +
+                 "        }\n" +
+                 "      },\n" +
+                 "      { \"-name\": \"openmode\" },\n" +
+                 "      { \"-name\": \"operator!\" },\n" +
+                 "      { \"-name\": \"operator!=\" },\n" +
+                 "      { \"-name\": \"operator\" }\n" +
+                 "    ]\n" +
+                 "  }";
+        try {
+             cppJson = new JSONObject(cppJsonString);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+
+
     }
 
     @Override
@@ -597,7 +2138,7 @@ public class SoftKeyboard extends InputMethodService
                 // suggestions.add("ololo");
                 // suggestions.add("azazaz");
                 // suggestions.add("wtf");}
-                List<String> wordGeomPar=geomSuggestions(mComposing.toString());
+                List<String> wordGeomPar=cppSujjest(mComposing.toString());
                 if(wordGeomPar!=null){
                     suggestions.addAll(wordGeomPar);
                 }
@@ -605,6 +2146,40 @@ public class SoftKeyboard extends InputMethodService
             }
             mCandidateView.setSuggestions(suggestions, completions, typedWordValid);
         }
+    }
+
+    List<String> cppSujjest(String typed){
+        List<String> ls = new ArrayList<String>();
+        JSONArray keywords = null;
+        JSONObject temp = null;
+        String name = null;
+        int count = 0;
+        try {
+            keywords = cppJson.getJSONArray("KeyWord");
+            for(int i=0;i<keywords.length()&&count<7;i++){
+                temp = (JSONObject) keywords.get(i);
+                name = temp.getString("-name");
+                   boolean olo = name.matches(".?"+typed.toLowerCase()+"\\w*");
+                if(olo)
+                {
+                    ls.add(name);
+                    count++;
+                }
+
+
+
+            }
+
+
+
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+
+
+        return ls;
     }
 
     List<String> geomSuggestions(String typed){

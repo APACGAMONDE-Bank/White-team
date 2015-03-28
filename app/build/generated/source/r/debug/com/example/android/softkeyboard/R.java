@@ -39,17 +39,19 @@ public final class R {
         public static final int input=0x7f030000;
     }
     public static final class string {
-        public static final int general_category=0x7f070000;
-        public static final int ime_name=0x7f070001;
-        public static final int label_go_key=0x7f070002;
-        public static final int label_next_key=0x7f070003;
-        public static final int label_send_key=0x7f070004;
-        public static final int label_subtype_en_GB=0x7f070005;
-        public static final int label_subtype_generic=0x7f070006;
-        public static final int language_selection_title=0x7f070007;
-        public static final int select_language=0x7f070008;
-        public static final int settings_name=0x7f070009;
-        public static final int word_separators=0x7f07000a;
+        public static final int cppJson=0x7f070000;
+        public static final int general_category=0x7f070001;
+        public static final int ime_name=0x7f070002;
+        public static final int label_go_key=0x7f070003;
+        public static final int label_next_key=0x7f070004;
+        public static final int label_send_key=0x7f070005;
+        public static final int label_subtype_en_GB=0x7f070006;
+        public static final int label_subtype_generic=0x7f070007;
+        public static final int language_selection_title=0x7f070008;
+        public static final int select_language=0x7f070009;
+        public static final int settings_name=0x7f07000a;
+        public static final int testJson=0x7f07000b;
+        public static final int word_separators=0x7f07000c;
     }
     public static final class xml {
         public static final int ime_preferences=0x7f040000;
