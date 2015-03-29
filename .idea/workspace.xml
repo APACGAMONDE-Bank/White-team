@@ -19,7 +19,7 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="app: com.example.android.softkeyboard" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="23d58546-fd37-4351-b037-ffecf214a447" name="Default" comment="add c++ authocomplete">
+    <list default="true" id="23d58546-fd37-4351-b037-ffecf214a447" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SoftKeyboard.iws" />
@@ -46,8 +46,8 @@
       <file leaf-file-name="SoftKeyboard.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/android/softkeyboard/SoftKeyboard.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7539823" vertical-offset="36311" max-vertical-offset="40205">
-              <caret line="2161" column="47" selection-start-line="2161" selection-start-column="47" selection-end-line="2161" selection-end-column="47" />
+            <state vertical-scroll-proportion="-4.7522125" vertical-offset="39626" max-vertical-offset="40205">
+              <caret line="2173" column="0" selection-start-line="2173" selection-start-column="0" selection-end-line="2173" selection-end-column="0" />
               <folding>
                 <element signature="e#0#109729#0" expanded="true" />
                 <element signature="imports" expanded="true" />
@@ -1818,7 +1818,11 @@
       <created>1427565591171</created>
       <updated>1427565591171</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add c++ authocomplete">
+      <created>1427566167342</created>
+      <updated>1427566167342</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -2297,8 +2301,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/android/softkeyboard/SoftKeyboard.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7539823" vertical-offset="36311" max-vertical-offset="40205">
-          <caret line="2161" column="47" selection-start-line="2161" selection-start-column="47" selection-end-line="2161" selection-end-column="47" />
+        <state vertical-scroll-proportion="-4.7522125" vertical-offset="39626" max-vertical-offset="40205">
+          <caret line="2173" column="0" selection-start-line="2173" selection-start-column="0" selection-end-line="2173" selection-end-column="0" />
           <folding>
             <element signature="e#0#109729#0" expanded="true" />
             <element signature="imports" expanded="true" />
