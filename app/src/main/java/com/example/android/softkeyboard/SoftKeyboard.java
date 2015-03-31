@@ -86,6 +86,7 @@ public class SoftKeyboard extends InputMethodService
     private LatinKeyboard mSymbolsKeyboard;
     private LatinKeyboard mSymbolsShiftedKeyboard;
     private LatinKeyboard mQwertyKeyboard;
+    private LatinKeyboard mRussianKeyboard;
     
     private LatinKeyboard mCurKeyboard;
     
@@ -119,6 +120,7 @@ public class SoftKeyboard extends InputMethodService
             mLastDisplayWidth = displayWidth;
         }
         mQwertyKeyboard = new LatinKeyboard(this, R.xml.qwerty);
+        mRussianKeyboard = new LatinKeyboard(this, R.xml.russian);
         mSymbolsKeyboard = new LatinKeyboard(this, R.xml.symbols);
         mSymbolsShiftedKeyboard = new LatinKeyboard(this, R.xml.symbols_shift);
     }
@@ -2083,10 +2085,10 @@ public class SoftKeyboard extends InputMethodService
         } else if (primaryCode == Keyboard.KEYCODE_MODE_CHANGE
                 && mInputView != null) {
             Keyboard current = mInputView.getKeyboard();
-            if (current == mSymbolsKeyboard || current == mSymbolsShiftedKeyboard) {
+            if (current == mRussianKeyboard) {
                 current = mQwertyKeyboard;
             } else {
-                current = mSymbolsKeyboard;
+                current = mRussianKeyboard;
             }
             mInputView.setKeyboard(current);
             if (current == mSymbolsKeyboard) {
