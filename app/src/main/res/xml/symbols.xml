@@ -23,6 +23,7 @@
     android:horizontalGap="0px"
     android:verticalGap="0px"
     android:keyHeight="@dimen/key_height"
+    android:keyBackground = "@drawable/btn_keyboard_key_dark_normal"
     >
 
     <Row>
