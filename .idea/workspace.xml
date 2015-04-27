@@ -17,19 +17,19 @@
     <option name="TOOL_WINDOW_LOG_LEVEL" value="DEBUG" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="app: com.example.android.softkeyboard" />
   </component>
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/app/src/main/java/com/example/android/softkeyboard/SoftKeyboard.java" line="928" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="23d58546-fd37-4351-b037-ffecf214a447" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-hdpi/btn_keyboard_key_dark_normal.9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/raw/cpp.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/raw/key.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/xml/preview.xml" />
-      <change type="DELETED" beforePath="C:\Users\vano\git\SoftKeyboard2\build\intermediates\model_data.bin" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/resources/resources-debug-androidTest.ap_" afterPath="$PROJECT_DIR$/app/build/intermediates/resources/resources-debug-androidTest.ap_" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/android/softkeyboard/diff_match_patch.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/model_data.bin" afterPath="$PROJECT_DIR$/build/intermediates/model_data.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/resources/resources-debug.ap_" afterPath="$PROJECT_DIR$/app/build/intermediates/resources/resources-debug.ap_" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/example/android/softkeyboard/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/example/android/softkeyboard/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.name" afterPath="$PROJECT_DIR$/.idea/.name" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/android/softkeyboard/SoftKeyboard.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/android/softkeyboard/SoftKeyboard.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/xml/symbols.xml" afterPath="$PROJECT_DIR$/app/src/main/res/xml/symbols.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/xml/symbols_shift.xml" afterPath="$PROJECT_DIR$/app/src/main/res/xml/symbols_shift.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/raw/cpp.json" afterPath="$PROJECT_DIR$/app/src/main/res/raw/cpp.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SoftKeyboard.iws" />
@@ -56,11 +56,11 @@
       <file leaf-file-name="SoftKeyboard.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/android/softkeyboard/SoftKeyboard.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3309091" vertical-offset="6669" max-vertical-offset="9180">
-              <caret line="711" column="49" selection-start-line="711" selection-start-column="49" selection-end-line="711" selection-end-column="49" />
+            <state vertical-scroll-proportion="0.32962963" vertical-offset="689" max-vertical-offset="13787">
+              <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
               <folding>
-                <element signature="e#4183#4233#0" expanded="true" />
-                <element signature="method#onDisplayCompletions#0;class#SoftKeyboard#0" expanded="false" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#13640#13648#0" expanded="true" />
                 <element signature="method#translateKeyDown#0;class#SoftKeyboard#0" expanded="false" />
                 <element signature="method#onKeyDown#0;class#SoftKeyboard#0" expanded="false" />
                 <element signature="docComment;method#onKeyUp#0;class#SoftKeyboard#0" expanded="false" />
@@ -74,10 +74,7 @@
                 <element signature="method#onKey#0;class#SoftKeyboard#0" expanded="false" />
                 <element signature="method#onText#0;class#SoftKeyboard#0" expanded="false" />
                 <element signature="method#updateCandidates#0;class#SoftKeyboard#0" expanded="false" />
-                <element signature="method#setSuggestions#0;class#SoftKeyboard#0" expanded="false" />
-                <element signature="e#26118#26126#0" expanded="true" />
-                <element signature="method#geomSuggestions#0;class#SoftKeyboard#0" expanded="false" />
-                <element signature="method#handleBackspace#0;class#SoftKeyboard#0" expanded="false" />
+                <element signature="e#34948#34956#0" expanded="true" />
                 <element signature="method#handleShift#0;class#SoftKeyboard#0" expanded="false" />
                 <element signature="method#handleCharacter#0;class#SoftKeyboard#0" expanded="false" />
                 <element signature="method#handleClose#0;class#SoftKeyboard#0" expanded="false" />
@@ -90,11 +87,59 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="key.json" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/raw/key.json">
+      <file leaf-file-name="diff_match_patch.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/android/softkeyboard/diff_match_patch.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="301" max-vertical-offset="1054">
-              <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
+            <state vertical-scroll-proportion="-57.923077" vertical-offset="37390" max-vertical-offset="41786">
+              <caret line="2288" column="24" selection-start-line="2288" selection-start-column="24" selection-end-line="2288" selection-end-column="24" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#7381#7387#0" expanded="true" />
+                <element signature="e#17611#17617#0" expanded="true" />
+                <element signature="e#19310#19318#0" expanded="true" />
+                <element signature="e#19373#19390#0" expanded="true" />
+                <element signature="e#29322#29328#0" expanded="true" />
+                <element signature="e#43008#43014#0" expanded="true" />
+                <element signature="e#61446#61452#0" expanded="true" />
+                <element signature="e#71227#71247#0" expanded="true" />
+                <element signature="e#75200#75201#0" expanded="true" />
+                <element signature="e#75247#75248#0" expanded="true" />
+                <element signature="e#75800#75807#0" expanded="true" />
+                <element signature="e#79428#79435#0" expanded="true" />
+                <element signature="e#93887#93894#0" expanded="true" />
+                <element signature="e#94091#94099#0" expanded="true" />
+                <element signature="e#99888#99889#0" expanded="true" />
+                <element signature="e#99947#99948#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="build.gradle" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-14.96" vertical-offset="0" max-vertical-offset="493">
+              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.gradle" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/settings.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="119">
+              <caret line="0" column="22" selection-start-line="0" selection-start-column="22" selection-end-line="0" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="build.gradle" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-4.76" vertical-offset="0" max-vertical-offset="374">
+              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -103,18 +148,8 @@
       <file leaf-file-name="InputMethodService.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://M:/Users/vano/AppData/Local/Android/sdk/sources/android-21/android/inputmethodservice/InputMethodService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="22295" max-vertical-offset="39644">
+            <state vertical-scroll-proportion="0.0" vertical-offset="22294" max-vertical-offset="39644">
               <caret line="1417" column="0" selection-start-line="1417" selection-start-column="0" selection-end-line="1417" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ZygoteInit.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://M:/Users/vano/AppData/Local/Android/sdk/sources/android-21/com/android/internal/os/ZygoteInit.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="13217" max-vertical-offset="14790">
-              <caret line="838" column="0" selection-start-line="838" selection-start-column="0" selection-end-line="838" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -123,28 +158,8 @@
       <file leaf-file-name="cpp.json" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/raw/cpp.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-47.57143" vertical-offset="23845" max-vertical-offset="25993">
-              <caret line="1481" column="32" selection-start-line="1481" selection-start-column="32" selection-end-line="1481" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="symbols_shift.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/xml/symbols_shift.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="901" max-vertical-offset="1479">
-              <caret line="53" column="4" selection-start-line="53" selection-start-column="4" selection-end-line="53" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="qwerty.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/xml/qwerty.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1955">
-              <caret line="17" column="2" selection-start-line="17" selection-start-column="2" selection-end-line="17" selection-end-column="2" />
+            <state vertical-scroll-proportion="-53.04" vertical-offset="0" max-vertical-offset="1870">
+              <caret line="78" column="30" selection-start-line="78" selection-start-column="30" selection-end-line="78" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -153,7 +168,7 @@
       <file leaf-file-name="preview.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/xml/preview.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="187">
+            <state vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="187">
               <caret line="5" column="38" selection-start-line="5" selection-start-column="38" selection-end-line="5" selection-end-column="38" />
               <folding />
             </state>
@@ -1138,7 +1153,7 @@
       <map>
         <entry key="$PROJECT_DIR$/../AnySoftKeyboard" value="5705117094135" />
         <entry key="$PROJECT_DIR$/../AnySoftKeyboard1" value="5705119062101" />
-        <entry key="$PROJECT_DIR$" value="4281630313833" />
+        <entry key="$PROJECT_DIR$" value="4286853486323" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -1308,6 +1323,87 @@
                           </list>
                         </option>
                         <option name="path" value="$PROJECT_DIR$/app" />
+                      </ExternalModuleBuildClasspathPojo>
+                    </value>
+                  </entry>
+                  <entry key="$PROJECT_DIR$/diffutils">
+                    <value>
+                      <ExternalModuleBuildClasspathPojo>
+                        <option name="entries">
+                          <list>
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/gradle/1.1.0/gradle-1.1.0-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/gradle/1.1.0/gradle-1.1.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/gradle-core/1.1.0/gradle-core-1.1.0-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/gradle-core/1.1.0/gradle-core-1.1.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/lint/lint/24.1.0/lint-24.1.0-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/lint/lint/24.1.0/lint-24.1.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/proguard/proguard-gradle/5.1/proguard-gradle-5.1-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/proguard/proguard-gradle/5.1/proguard-gradle-5.1.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/builder/1.1.0/builder-1.1.0-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/builder/1.1.0/builder-1.1.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/eclipse/jdt/core/compiler/ecj/4.4/ecj-4.4-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/eclipse/jdt/core/compiler/ecj/4.4/ecj-4.4.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/lint/lint-checks/24.1.0/lint-checks-24.1.0-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/lint/lint-checks/24.1.0/lint-checks-24.1.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/proguard/proguard-base/5.1/proguard-base-5.1-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/proguard/proguard-base/5.1/proguard-base-5.1.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/sdk-common/24.1.0/sdk-common-24.1.0-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/sdk-common/24.1.0/sdk-common-24.1.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/builder-model/1.1.0/builder-model-1.1.0-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/builder-model/1.1.0/builder-model-1.1.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/manifest-merger/24.1.0/manifest-merger-24.1.0-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/manifest-merger/24.1.0/manifest-merger-24.1.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/bouncycastle/bcprov-jdk15on/1.48/bcprov-jdk15on-1.48-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/bouncycastle/bcprov-jdk15on/1.48/bcprov-jdk15on-1.48.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/builder-test-api/1.1.0/builder-test-api-1.1.0-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/build/builder-test-api/1.1.0/builder-test-api-1.1.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm-tree/5.0.3/asm-tree-5.0.3-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm-tree/5.0.3/asm-tree-5.0.3.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/ddms/ddmlib/24.1.0/ddmlib-24.1.0-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/ddms/ddmlib/24.1.0/ddmlib-24.1.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/squareup/javawriter/2.5.0/javawriter-2.5.0-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/squareup/javawriter/2.5.0/javawriter-2.5.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/sdklib/24.1.0/sdklib-24.1.0-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/sdklib/24.1.0/sdklib-24.1.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/common/24.1.0/common-24.1.0-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/common/24.1.0/common-24.1.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm/5.0.3/asm-5.0.3-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm/5.0.3/asm-5.0.3.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/bouncycastle/bcpkix-jdk15on/1.48/bcpkix-jdk15on-1.48-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/bouncycastle/bcpkix-jdk15on/1.48/bcpkix-jdk15on-1.48.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm-analysis/5.0.3/asm-analysis-5.0.3-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/ow2/asm/asm-analysis/5.0.3/asm-analysis-5.0.3.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/lint/lint-api/24.1.0/lint-api-24.1.0-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/lint/lint-api/24.1.0/lint-api-24.1.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/google/code/gson/gson/2.2.4/gson-2.2.4-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/google/code/gson/gson/2.2.4/gson-2.2.4.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/annotations/24.1.0/annotations-24.1.0-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/annotations/24.1.0/annotations-24.1.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/kxml/kxml2/2.3.0/kxml2-2.3.0-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/net/sf/kxml/kxml2/2.3.0/kxml2-2.3.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/dvlib/24.1.0/dvlib-24.1.0-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/dvlib/24.1.0/dvlib-24.1.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpclient/4.1.1/httpclient-4.1.1-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpclient/4.1.1/httpclient-4.1.1.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpmime/4.1/httpmime-4.1-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpmime/4.1/httpmime-4.1.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/layoutlib/layoutlib-api/24.1.0/layoutlib-api-24.1.0-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/layoutlib/layoutlib-api/24.1.0/layoutlib-api-24.1.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/commons/commons-compress/1.8.1/commons-compress-1.8.1-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/commons/commons-compress/1.8.1/commons-compress-1.8.1.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/google/guava/guava/17.0/guava-17.0-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/google/guava/guava/17.0/guava-17.0.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/external/lombok/lombok-ast/0.2.3/lombok-ast-0.2.3-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/com/android/tools/external/lombok/lombok-ast/0.2.3/lombok-ast-0.2.3.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpcore/4.1/httpcore-4.1-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/org/apache/httpcomponents/httpcore/4.1/httpcore-4.1.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-codec/commons-codec/1.4/commons-codec-1.4-sources.jar" />
+                            <option value="$APPLICATION_HOME_DIR$/gradle/m2repository/commons-codec/commons-codec/1.4/commons-codec-1.4.jar" />
+                          </list>
+                        </option>
+                        <option name="path" value="$PROJECT_DIR$/diffutils" />
                       </ExternalModuleBuildClasspathPojo>
                     </value>
                   </entry>
@@ -1514,26 +1610,26 @@
       <list>
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/android/softkeyboard/CandidateView.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/dimens.xml" />
-        <option value="$PROJECT_DIR$/settings.gradle" />
         <option value="$PROJECT_DIR$/build.gradle" />
-        <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/xml/symbols.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/xml/symbols_shift.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/preview.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/xml/preview.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/xml/qwerty.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/raw/cpp.json" />
         <option value="$PROJECT_DIR$/app/src/main/res/raw/key.json" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/android/softkeyboard/diff_match_patch.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/raw/cpp.json" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
+        <option value="$PROJECT_DIR$/settings.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/android/softkeyboard/SoftKeyboard.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="x" value="681" />
+    <option name="width" value="1152" />
+    <option name="height" value="1036" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -1561,12 +1657,13 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="ProjectPane" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="SoftKeyboard" />
+              <option name="myItemId" value="SoftKeyboard2" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -1576,13 +1673,23 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="SoftKeyboard" />
+              <option name="myItemId" value="SoftKeyboard2" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="SoftKeyboard" />
+              <option name="myItemId" value="SoftKeyboard2" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SoftKeyboard2" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -1590,13 +1697,21 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="softkeyboard" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="SoftKeyboard" />
+              <option name="myItemId" value="SoftKeyboard2" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -1604,28 +1719,17 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="raw" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SoftKeyboard" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+              <option name="myItemId" value="com" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="ProjectPane" />
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1636,35 +1740,6 @@
     <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="options.lastSelected" value="settings.github" />
-    <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="options.searchVisible" value="true" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="293" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="293" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="293" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="967" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="293" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="292" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="293" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="968" />
-    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/build/libs/jts-1.13.jar" />
-    <property name="android.project.structure.last.selected" value="jts" />
-    <property name="android.project.structure.proportion" value="0.15" />
-    <property name="restartRequiresConfirmation" value="true" />
-    <property name="DEBUGGABLE_DEVICE" value="alps-iru_tablet_pc-0123456789ABCDEF" />
-    <property name="DEBUGGABLE_PROCESS" value="com.example.android.softkeyboard" />
-    <property name="SHOW_ALL_PROCESSES" value="true" />
-    <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable-hdpi" />
-    <property name="FullScreen" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -1861,7 +1936,11 @@
       <created>1427628301351</created>
       <updated>1427628301351</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="add key coords as raw .json, cpp keywords as raw json, keywords geom length counter, pick kandidates by geom length;">
+      <created>1428010076191</created>
+      <updated>1428010076191</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1885,29 +1964,29 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="681" y="0" width="1152" height="1036" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31555554" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31485587" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32666665" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32997763" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3232662" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21428572" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.36479127" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32885906" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -1935,7 +2014,8 @@
     </option>
     <MESSAGE value="Add geometry analysys and wiev of length and semy-correct area" />
     <MESSAGE value="add c++ authocomplete" />
-    <option name="LAST_COMMIT_MESSAGE" value="add c++ authocomplete" />
+    <MESSAGE value="add key coords as raw .json, cpp keywords as raw json, keywords geom length counter, pick kandidates by geom length;" />
+    <option name="LAST_COMMIT_MESSAGE" value="add key coords as raw .json, cpp keywords as raw json, keywords geom length counter, pick kandidates by geom length;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1945,49 +2025,26 @@
           <properties />
           <option name="timeStamp" value="36" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/android/softkeyboard/SoftKeyboard.java</url>
+          <line>350</line>
+          <properties />
+          <option name="timeStamp" value="90" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/example/android/softkeyboard/SoftKeyboard.java</url>
+          <line>930</line>
+          <properties />
+          <option name="timeStamp" value="92" />
+        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="89" />
+      <option name="time" value="93" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/android/softkeyboard/SoftKeyboard.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="12274">
-          <caret line="306" column="51" selection-start-line="306" selection-start-column="51" selection-end-line="306" selection-end-column="51" />
-          <folding>
-            <element signature="e#4183#4233#0" expanded="true" />
-            <element signature="method#onDisplayCompletions#0;class#SoftKeyboard#0" expanded="false" />
-            <element signature="method#translateKeyDown#0;class#SoftKeyboard#0" expanded="false" />
-            <element signature="method#onKeyDown#0;class#SoftKeyboard#0" expanded="false" />
-            <element signature="docComment;method#onKeyUp#0;class#SoftKeyboard#0" expanded="false" />
-            <element signature="method#onKeyUp#0;class#SoftKeyboard#0" expanded="false" />
-            <element signature="method#commitTyped#0;class#SoftKeyboard#0" expanded="false" />
-            <element signature="method#commitTyped#1;class#SoftKeyboard#0" expanded="false" />
-            <element signature="method#updateShiftKeyState#0;class#SoftKeyboard#0" expanded="false" />
-            <element signature="method#isAlphabet#0;class#SoftKeyboard#0" expanded="false" />
-            <element signature="method#keyDownUp#0;class#SoftKeyboard#0" expanded="false" />
-            <element signature="method#sendKey#0;class#SoftKeyboard#0" expanded="false" />
-            <element signature="method#onKey#0;class#SoftKeyboard#0" expanded="false" />
-            <element signature="method#onText#0;class#SoftKeyboard#0" expanded="false" />
-            <element signature="method#updateCandidates#0;class#SoftKeyboard#0" expanded="false" />
-            <element signature="method#setSuggestions#0;class#SoftKeyboard#0" expanded="false" />
-            <element signature="e#26118#26126#0" expanded="true" />
-            <element signature="method#geomSuggestions#0;class#SoftKeyboard#0" expanded="false" />
-            <element signature="method#handleBackspace#0;class#SoftKeyboard#0" expanded="false" />
-            <element signature="method#handleShift#0;class#SoftKeyboard#0" expanded="false" />
-            <element signature="method#handleCharacter#0;class#SoftKeyboard#0" expanded="false" />
-            <element signature="method#handleClose#0;class#SoftKeyboard#0" expanded="false" />
-            <element signature="method#checkToggleCapsLock#0;class#SoftKeyboard#0" expanded="false" />
-            <element signature="method#isWordSeparator#0;class#SoftKeyboard#0" expanded="false" />
-            <element signature="method#pickSuggestionManually#0;class#SoftKeyboard#0" expanded="false" />
-            <element signature="method#swipeRight#0;class#SoftKeyboard#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/input.xml">
       <provider editor-type-id="android-designer">
         <state />
@@ -2002,7 +2059,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="425" max-vertical-offset="1003">
           <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2010,7 +2066,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="425" max-vertical-offset="1972">
           <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2098,27 +2153,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/settings.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="550">
-          <caret line="0" column="21" selection-start-line="0" selection-start-column="21" selection-end-line="0" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="374">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="476">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/android/softkeyboard/ImePreferences.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="748">
@@ -2189,7 +2223,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="714">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2232,7 +2265,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2240,7 +2272,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="646">
           <caret line="49" column="80" selection-start-line="49" selection-start-column="80" selection-end-line="49" selection-end-column="80" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2248,22 +2279,29 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="425" max-vertical-offset="1972">
           <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-hdpi/btn_keyboard_key_dark_normal.9.png">
-      <provider editor-type-id="images">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="ninepatcheditor">
         <state />
       </provider>
+      <provider editor-type-id="images">
+        <state />
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/xml/symbols.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/raw/key.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1479">
-          <caret line="25" column="68" selection-start-line="25" selection-start-column="68" selection-end-line="25" selection-end-column="68" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="301" max-vertical-offset="1054">
+          <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://M:/Users/vano/AppData/Local/Android/sdk/sources/android-21/com/android/internal/os/ZygoteInit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="13217" max-vertical-offset="14790">
+          <caret line="838" column="0" selection-start-line="838" selection-start-column="0" selection-end-line="838" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -2272,17 +2310,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="1479">
           <caret line="53" column="4" selection-start-line="53" selection-start-column="4" selection-end-line="53" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/input.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="374" max-vertical-offset="561">
-          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="25" selection-end-column="44" />
           <folding />
         </state>
       </provider>
@@ -2306,45 +2333,98 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/input.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="374" max-vertical-offset="561">
+          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="25" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/xml/symbols.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1479">
+          <caret line="25" column="68" selection-start-line="25" selection-start-column="68" selection-end-line="25" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/android/softkeyboard/diff_match_patch.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-57.923077" vertical-offset="37390" max-vertical-offset="41786">
+          <caret line="2288" column="24" selection-start-line="2288" selection-start-column="24" selection-end-line="2288" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#7381#7387#0" expanded="true" />
+            <element signature="e#17611#17617#0" expanded="true" />
+            <element signature="e#19310#19318#0" expanded="true" />
+            <element signature="e#19373#19390#0" expanded="true" />
+            <element signature="e#29322#29328#0" expanded="true" />
+            <element signature="e#43008#43014#0" expanded="true" />
+            <element signature="e#61446#61452#0" expanded="true" />
+            <element signature="e#71227#71247#0" expanded="true" />
+            <element signature="e#75200#75201#0" expanded="true" />
+            <element signature="e#75247#75248#0" expanded="true" />
+            <element signature="e#75800#75807#0" expanded="true" />
+            <element signature="e#79428#79435#0" expanded="true" />
+            <element signature="e#93887#93894#0" expanded="true" />
+            <element signature="e#94091#94099#0" expanded="true" />
+            <element signature="e#99888#99889#0" expanded="true" />
+            <element signature="e#99947#99948#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://M:/Users/vano/AppData/Local/Android/sdk/sources/android-21/android/inputmethodservice/InputMethodService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="22295" max-vertical-offset="39644">
+        <state vertical-scroll-proportion="0.0" vertical-offset="22294" max-vertical-offset="39644">
           <caret line="1417" column="0" selection-start-line="1417" selection-start-column="0" selection-end-line="1417" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://M:/Users/vano/AppData/Local/Android/sdk/sources/android-21/com/android/internal/os/ZygoteInit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="13217" max-vertical-offset="14790">
-          <caret line="838" column="0" selection-start-line="838" selection-start-column="0" selection-end-line="838" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/raw/key.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="301" max-vertical-offset="1054">
-          <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/raw/cpp.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-47.57143" vertical-offset="23845" max-vertical-offset="25993">
-          <caret line="1481" column="32" selection-start-line="1481" selection-start-column="32" selection-end-line="1481" selection-end-column="32" />
+        <state vertical-scroll-proportion="-53.04" vertical-offset="0" max-vertical-offset="1870">
+          <caret line="78" column="30" selection-start-line="78" selection-start-column="30" selection-end-line="78" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.76" vertical-offset="0" max-vertical-offset="374">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/settings.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="119">
+          <caret line="0" column="22" selection-start-line="0" selection-start-column="22" selection-end-line="0" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.96" vertical-offset="0" max-vertical-offset="493">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/android/softkeyboard/SoftKeyboard.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3309091" vertical-offset="6669" max-vertical-offset="9180">
-          <caret line="711" column="49" selection-start-line="711" selection-start-column="49" selection-end-line="711" selection-end-column="49" />
+        <state vertical-scroll-proportion="0.32962963" vertical-offset="689" max-vertical-offset="13787">
+          <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
           <folding>
-            <element signature="e#4183#4233#0" expanded="true" />
-            <element signature="method#onDisplayCompletions#0;class#SoftKeyboard#0" expanded="false" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#13640#13648#0" expanded="true" />
             <element signature="method#translateKeyDown#0;class#SoftKeyboard#0" expanded="false" />
             <element signature="method#onKeyDown#0;class#SoftKeyboard#0" expanded="false" />
             <element signature="docComment;method#onKeyUp#0;class#SoftKeyboard#0" expanded="false" />
@@ -2358,10 +2438,7 @@
             <element signature="method#onKey#0;class#SoftKeyboard#0" expanded="false" />
             <element signature="method#onText#0;class#SoftKeyboard#0" expanded="false" />
             <element signature="method#updateCandidates#0;class#SoftKeyboard#0" expanded="false" />
-            <element signature="method#setSuggestions#0;class#SoftKeyboard#0" expanded="false" />
-            <element signature="e#26118#26126#0" expanded="true" />
-            <element signature="method#geomSuggestions#0;class#SoftKeyboard#0" expanded="false" />
-            <element signature="method#handleBackspace#0;class#SoftKeyboard#0" expanded="false" />
+            <element signature="e#34948#34956#0" expanded="true" />
             <element signature="method#handleShift#0;class#SoftKeyboard#0" expanded="false" />
             <element signature="method#handleCharacter#0;class#SoftKeyboard#0" expanded="false" />
             <element signature="method#handleClose#0;class#SoftKeyboard#0" expanded="false" />

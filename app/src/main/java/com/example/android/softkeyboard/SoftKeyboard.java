@@ -50,13 +50,20 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.BitSet;
+import java.util.Set;
 
 import static java.lang.Math.abs;
 import static java.lang.Math.pow;
 import static java.lang.StrictMath.sqrt;
+
+
+
 
 /**
  * Example of writing an input method for a soft keyboard.  This code is
@@ -103,6 +110,7 @@ public class SoftKeyboard extends InputMethodService
     private String mWordSeparators;
     private String cppJsonString;
     private JSONObject cppJson;
+    private Map<BitSet,List<String>> cppStringHash ;
 
         /**
          * Main initialization of the input method component.  Be sure to call
@@ -332,12 +340,35 @@ public class SoftKeyboard extends InputMethodService
             temp = (JSONObject) keywords.get(i);
             name = temp.getString("-name");
 
-            temp.put("-length",StringLengthGeom(name));
+            temp.put("-length",StringHashEng(name));
 
 
 
 
         }
+            cppStringHash = new HashMap<BitSet, List<String>>() ;
+
+            for(int i=0; i< keywords.length();i++){
+
+                temp = (JSONObject) keywords.get(i);
+                if(cppStringHash.containsKey((BitSet) temp.get("-length"))){
+                    cppStringHash.get((BitSet) temp.get("-length")).add(temp.getString("-name"));
+                    }
+                else{
+                    BitSet tDS = (BitSet) temp.get("-length");
+                    List<String> tLS = new ArrayList<String>();
+                    tLS.add(temp.getString("-name"));
+                            cppStringHash.put(tDS, tLS);
+
+                }
+
+
+
+
+
+            }
+
+
 
 
         } catch (JSONException e) {
@@ -692,7 +723,7 @@ public class SoftKeyboard extends InputMethodService
                 // suggestions.add("ololo");
                 // suggestions.add("azazaz");
                 // suggestions.add("wtf");}
-                List<String> wordGeomPar=cppSujjest(mComposing.toString());
+                List<String> wordGeomPar=cppSujjestHash(mComposing.toString());
                 if(wordGeomPar!=null){
                     suggestions.addAll(wordGeomPar);
                 }
@@ -710,7 +741,7 @@ public class SoftKeyboard extends InputMethodService
         Double length = 0.;
         int count = 0;
         Double tlength = StringLengthGeom(typed);
-        ls.add(tlength.toString());
+        ls.add(String.format( "%.2f", tlength ));
         try {
             keywords = cppJson.getJSONArray("KeyWord");
             for(int i=0;i<keywords.length()&&count<7;i++){
@@ -718,10 +749,10 @@ public class SoftKeyboard extends InputMethodService
                 name = temp.getString("-name");
                 length = temp.getDouble("-length");
 
-                if(abs(tlength -length)<0.1)
+                if(abs(tlength -length)<0.05)
                 {
                     ls.add(name);
-                    ls.add(length.toString());
+                    ls.add(String.format( "%.2f", length ));
                     count++;
                 }
 
@@ -852,6 +883,106 @@ public class SoftKeyboard extends InputMethodService
 
         return -1.0;
 
+    }
+
+    BitSet StringHashEng (String typed){
+        Map<Character , Integer > bitNumber = new HashMap<Character, Integer>();
+        bitNumber.put('a',0);
+        bitNumber.put('q',0);
+        bitNumber.put('s',1);
+        bitNumber.put('z',1);
+        bitNumber.put('w',1);
+        bitNumber.put('d',1);
+        bitNumber.put('e',2);
+        bitNumber.put('r',2);
+        bitNumber.put('t',2);
+        bitNumber.put('f',3);
+        bitNumber.put('g',3);
+        bitNumber.put('c',4);
+        bitNumber.put('v',4);
+        bitNumber.put('x',4);
+        bitNumber.put('b',5);
+        bitNumber.put('n',5);
+        bitNumber.put('m',5);
+        bitNumber.put('h',6);
+        bitNumber.put('j',6);
+        bitNumber.put('k',7);
+        bitNumber.put('l',7);
+        bitNumber.put('i',7);
+        bitNumber.put('u',8);
+        bitNumber.put('y',8);
+        bitNumber.put('o',9);
+        bitNumber.put('p',9);
+        bitNumber.put('_',10);
+        bitNumber.put('1',10);
+        bitNumber.put('2',10);
+        bitNumber.put('3',10);
+        bitNumber.put('4',10);
+        bitNumber.put('5',10);
+        bitNumber.put('6',10);
+        bitNumber.put('7',10);
+        bitNumber.put('8',10);
+        bitNumber.put('9',10);
+        bitNumber.put('0',10);
+
+
+        BitSet typedB = new BitSet(13);
+        char[] typedC = typed.toCharArray();
+        Log.d("words",typed) ;
+        for(int i = 0; i< typed.length();i++){
+            try {
+                typedB.set(bitNumber.get(typedC[i]).intValue(),true);
+            }
+            catch (Exception e) {
+                e.printStackTrace();
+                return new BitSet(13);
+            }
+
+        }
+
+    return typedB;
+    }
+
+   List<String> cppSujjestHash(String typed){
+    List<String> tLS = null;
+       List<String> sujjest = new ArrayList<String>();
+       BitSet typedB = StringHashEng(typed.toLowerCase());
+
+       diff_match_patch diff = new diff_match_patch();
+       LinkedList<diff_match_patch.Diff> temp_diff = null;
+       for(int k = 0; k<14;k++) {
+           //если есть такой код в списке
+           if (cppStringHash.containsKey(typedB)) {
+               tLS = cppStringHash.get(typedB);
+               //проходим по списку слов с таким же хешем
+               for (int i = 0; i < tLS.size(); i++) {
+                   if (tLS.get(i).length() > typed.length() + 1) {
+                       continue;
+                   } //если разница в длинне слов больше чем 1 то пропускаем слово
+                   temp_diff = diff.diff_main(tLS.get(i), typed);
+                   diff_match_patch.Diff td = null;
+                   String tw = "";
+                   //проходим по списку разницы между набранным и тем что в списке
+                   for (int j = 0; j < temp_diff.size(); j++) {
+                       td = temp_diff.get(j);
+                       if (td.operation == diff_match_patch.Operation.EQUAL) {
+                           tw += td.text;
+                       }
+
+                   }
+                   if (abs(tw.length() - typed.length()) <= 1) {
+                       sujjest.add(tLS.get(i));
+                   }
+               }
+
+           }
+           if(k==13){continue;}
+           typedB =StringHashEng(typed.toLowerCase());
+           typedB.set(k,!typedB.get(k));
+       }
+
+
+    return sujjest;
     }
 
 
