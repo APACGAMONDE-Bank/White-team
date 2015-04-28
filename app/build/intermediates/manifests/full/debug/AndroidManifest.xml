@@ -3,7 +3,7 @@
     package="com.example.android.softkeyboard" >
 
     <uses-sdk
-        android:minSdkVersion="10"
+        android:minSdkVersion="14"
         android:targetSdkVersion="21" />
 
     <application android:label="@string/ime_name" >

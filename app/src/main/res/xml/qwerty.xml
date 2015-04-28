@@ -39,7 +39,7 @@
         <Key android:codes="48" android:keyLabel="0"/>
         <Key android:codes="45" android:keyLabel="-"/>
         <Key android:codes="61" android:keyLabel="="/>
-        <Key android:codes="-5" android:keyIcon="@drawable/sym_keyboard_delete" android:keyEdgeFlags="right" android:keyWidth="15%p"/>
+        <Key android:codes="-5" android:keyIcon="@drawable/sym_keyboard_delete" android:isRepeatable="true" android:keyEdgeFlags="right" android:keyWidth="15%p"/>
     </Row>
     <Row>
         <Key android:codes="61" android:keyLabel="tab" android:keyEdgeFlags="left" android:keyWidth="15%p"/>
@@ -54,8 +54,8 @@
         <Key android:codes="105" android:keyLabel="i"/>
         <Key android:codes="111" android:keyLabel="o"/>
         <Key android:codes="112" android:keyLabel="p"/>
-        <Key android:codes="91" android:keyLabel="["/>
-        <Key android:codes="93" android:keyLabel="]"/>
+        <Key android:codes="91" android:keyLabel="[" android:popupKeyboard="@xml/abc"/>
+        <Key android:codes="93" android:keyLabel="]" android:popupCharacters="B" />
         <Key android:codes="92" android:keyLabel="\\" android:keyEdgeFlags="right"/>
     </Row>
     
