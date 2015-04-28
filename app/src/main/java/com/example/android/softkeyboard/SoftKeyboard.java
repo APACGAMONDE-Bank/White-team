@@ -17,6 +17,9 @@
 package com.example.android.softkeyboard;
 
 import android.content.res.Resources;
+import android.content.ClipboardManager;
+import android.content.ClipData;
+import android.content.Context;
 import android.inputmethodservice.InputMethodService;
 import android.inputmethodservice.Keyboard;
 import android.inputmethodservice.KeyboardView;
@@ -483,7 +486,7 @@ public class SoftKeyboard extends InputMethodService
             case -116:
                 InputConnection ic1 = getCurrentInputConnection();
                 ic1.commitText("ы",1);
-                return true;
+                break;
 
             case KeyEvent.KEYCODE_BACK:
                 // The InputMethodService already takes care of the back
@@ -648,6 +651,32 @@ public class SoftKeyboard extends InputMethodService
             InputConnection ic1 = getCurrentInputConnection();
             ic1.commitText("ы", 1);
             return;
+        }
+        switch(primaryCode) {
+            case 19:
+                //sendDownUpKeyEvents(KeyEvent.KEYCODE_DPAD_LEFT);
+                keyDownUp(KeyEvent.KEYCODE_DPAD_UP);
+                return;
+            case 20:
+                keyDownUp(KeyEvent.KEYCODE_DPAD_DOWN);
+                return;
+            case 21:
+                keyDownUp(KeyEvent.KEYCODE_DPAD_LEFT);
+                return;
+            case 22:
+                keyDownUp(KeyEvent.KEYCODE_DPAD_RIGHT);
+                return;
+            case -319:
+                keyDownUp(KeyEvent.KEYCODE_ESCAPE);
+                return;
+            case -320:
+                //Обработчик для клавиши копирования
+                //MyClipboardManager.copyToClipboard("copy context", "copy text");
+                return;
+            case -321:
+                //Обработчик для клавиши вставки
+                //MyClipboardManager.readFromClipboard(Context context);
+                return;
         }
         if (isWordSeparator(primaryCode)) {
             // Handle separator
@@ -1010,6 +1039,9 @@ public class SoftKeyboard extends InputMethodService
         Keyboard currentKeyboard = mInputView.getKeyboard();
         if (mQwertyKeyboard == currentKeyboard) {
             // Alphabet keyboard
+            checkToggleCapsLock();
+            mInputView.setShifted(mCapsLock || !mInputView.isShifted());
+        } else if (mRussianKeyboard == currentKeyboard) {
             checkToggleCapsLock();
             mInputView.setShifted(mCapsLock || !mInputView.isShifted());
         } else if (currentKeyboard == mSymbolsKeyboard) {
