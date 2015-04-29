@@ -27,21 +27,17 @@ public final class R {
         public static final int icon_en_us=0x7f020002;
         public static final int sym_keyboard_delete=0x7f020003;
         public static final int sym_keyboard_done=0x7f020004;
-        public static final int sym_keyboard_language_arrows_left=0x7f020005;
-        public static final int sym_keyboard_language_arrows_right=0x7f020006;
-        public static final int sym_keyboard_language_switch=0x7f020007;
-        public static final int sym_keyboard_return=0x7f020008;
-        public static final int sym_keyboard_search=0x7f020009;
-        public static final int sym_keyboard_shift=0x7f02000a;
-        public static final int sym_keyboard_space=0x7f02000b;
-        public static final int sym_keyboard_tab=0x7f02000c;
+        public static final int sym_keyboard_language_switch=0x7f020005;
+        public static final int sym_keyboard_return=0x7f020006;
+        public static final int sym_keyboard_search=0x7f020007;
+        public static final int sym_keyboard_shift=0x7f020008;
+        public static final int sym_keyboard_space=0x7f020009;
     }
     public static final class id {
         public static final int keyboard=0x7f090000;
     }
     public static final class layout {
         public static final int input=0x7f030000;
-        public static final int qwerty=0x7f030001;
     }
     public static final class raw {
         public static final int cpp=0x7f050000;
@@ -57,19 +53,19 @@ public final class R {
         public static final int label_subtype_en_GB=0x7f080006;
         public static final int label_subtype_generic=0x7f080007;
         public static final int language_selection_title=0x7f080008;
-        public static final int select_language=0x7f080009;
-        public static final int settings_name=0x7f08000a;
-        public static final int testJson=0x7f08000b;
-        public static final int word_separators=0x7f08000c;
+        public static final int message=0x7f080009;
+        public static final int select_language=0x7f08000a;
+        public static final int settings_name=0x7f08000b;
+        public static final int testJson=0x7f08000c;
+        public static final int word_separators=0x7f08000d;
     }
     public static final class xml {
-        public static final int abc=0x7f040000;
-        public static final int ime_preferences=0x7f040001;
-        public static final int method=0x7f040002;
-        public static final int preview=0x7f040003;
-        public static final int qwerty=0x7f040004;
-        public static final int russian=0x7f040005;
-        public static final int symbols=0x7f040006;
-        public static final int symbols_shift=0x7f040007;
+        public static final int ime_preferences=0x7f040000;
+        public static final int method=0x7f040001;
+        public static final int preview=0x7f040002;
+        public static final int qwerty=0x7f040003;
+        public static final int russian=0x7f040004;
+        public static final int symbols=0x7f040005;
+        public static final int symbols_shift=0x7f040006;
     }
 }

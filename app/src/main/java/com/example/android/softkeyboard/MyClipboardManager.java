@@ -28,13 +28,13 @@ public class MyClipboardManager {
             } else {
                 android.content.ClipboardManager clipboard = (android.content.ClipboardManager) context
                         .getSystemService(context.CLIPBOARD_SERVICE);
-                /*
+
                 android.content.ClipData clip = android.content.ClipData
                         .newPlainText(
                                 context.getResources().getString(
                                         R.string.message), text);
-                                        */
-                android.content.ClipData clip = android.content.ClipData
+
+                 clip = android.content.ClipData
                         .newPlainText(
                                 "123", text);
                 clipboard.setPrimaryClip(clip);

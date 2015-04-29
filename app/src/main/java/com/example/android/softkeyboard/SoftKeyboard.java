@@ -35,14 +35,14 @@ import android.view.inputmethod.InputConnection;
 import android.view.inputmethod.InputMethodManager;
 import android.view.inputmethod.InputMethodSubtype;
 
-import com.vividsolutions.jts.geom.Coordinate;
+/*import com.vividsolutions.jts.geom.Coordinate;
 import com.vividsolutions.jts.geom.GeometryFactory;
 import com.vividsolutions.jts.geom.LineString;
 import com.vividsolutions.jts.geom.LinearRing;
 import com.vividsolutions.jts.geom.MultiPoint;
 import com.vividsolutions.jts.geom.Polygon;
 import com.vividsolutions.jts.geom.PrecisionModel;
-
+*/
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -106,10 +106,11 @@ public class SoftKeyboard extends InputMethodService
     private LatinKeyboard mSymbolsKeyboard;
     private LatinKeyboard mSymbolsShiftedKeyboard;
     private LatinKeyboard mQwertyKeyboard;
+    private LatinKeyboard mEnglishKeyboard;
     private LatinKeyboard mRussianKeyboard;
     
     private LatinKeyboard mCurKeyboard;
-    
+
     private String mWordSeparators;
     private String cppJsonString;
     private JSONObject cppJson;
@@ -132,18 +133,13 @@ public class SoftKeyboard extends InputMethodService
      * is called after creation and any configuration change.
      */
     @Override public void onInitializeInterface() {
-        if (mQwertyKeyboard != null) {
-            // Configuration changes can happen after the keyboard gets recreated,
-            // so we need to be able to re-build the keyboards if the available
-            // space has changed.
-            int displayWidth = getMaxWidth();
-            if (displayWidth == mLastDisplayWidth) return;
-            mLastDisplayWidth = displayWidth;
-        }
-        mQwertyKeyboard = new LatinKeyboard(this, R.xml.qwerty);
+
         mRussianKeyboard = new LatinKeyboard(this, R.xml.russian);
+
+        mEnglishKeyboard = new LatinKeyboard(this, R.xml.qwerty);
         mSymbolsKeyboard = new LatinKeyboard(this, R.xml.symbols);
         mSymbolsShiftedKeyboard = new LatinKeyboard(this, R.xml.symbols_shift);
+        mQwertyKeyboard = mRussianKeyboard;
     }
     
     /**
@@ -646,9 +642,10 @@ public class SoftKeyboard extends InputMethodService
     // Implementation of KeyboardViewListener
 
     public void onKey(int primaryCode, int[] keyCodes) {
-
+        MyClipboardManager mc = new MyClipboardManager();
+        InputConnection ic1 = getCurrentInputConnection();
         if(primaryCode ==  -116) {
-            InputConnection ic1 = getCurrentInputConnection();
+
             ic1.commitText("ы", 1);
             return;
         }
@@ -671,11 +668,14 @@ public class SoftKeyboard extends InputMethodService
                 return;
             case -320:
                 //Обработчик для клавиши копирования
-                //MyClipboardManager.copyToClipboard("copy context", "copy text");
+
+                mc.copyToClipboard(getApplicationContext(), ic1.getSelectedText(0).toString());
+
                 return;
             case -321:
                 //Обработчик для клавиши вставки
-                //MyClipboardManager.readFromClipboard(Context context);
+                ic1.commitText(mc.readFromClipboard(getApplicationContext()),1);
+
                 return;
         }
         if (isWordSeparator(primaryCode)) {
@@ -698,11 +698,15 @@ public class SoftKeyboard extends InputMethodService
                 && mInputView != null) {
             Keyboard current = mInputView.getKeyboard();
             if (current == mRussianKeyboard) {
-                current = mQwertyKeyboard;
+                current = mEnglishKeyboard;
             } else {
                 current = mRussianKeyboard;
             }
+            mQwertyKeyboard = (LatinKeyboard)current;
             mInputView.setKeyboard(current);
+            //onCreateInputView().invalidate();
+            mInputView.setPadding(0,0,100,0);
+
             if (current == mSymbolsKeyboard) {
                 current.setShifted(false);
             }
@@ -762,7 +766,7 @@ public class SoftKeyboard extends InputMethodService
         }
     }
 
-    List<String> cppSujjest(String typed){
+  /*  List<String> cppSujjest(String typed){
         List<String> ls = new ArrayList<String>();
         JSONArray keywords = null;
         JSONObject temp = null;
@@ -799,9 +803,9 @@ public class SoftKeyboard extends InputMethodService
 
 
         return ls;
-    }
+    }*/
 
-    List<String> geomSuggestions(String typed){
+   /* List<String> geomSuggestions(String typed){
         char[] cTyped = typed.toLowerCase().toCharArray();
         List<String> ls = null;
         JSONObject Keygeometry = null;
@@ -840,7 +844,8 @@ public class SoftKeyboard extends InputMethodService
             LinearRing[] empty = new LinearRing[0];
 
             LinearRing geomWord = gf.createLinearRing(coordinates);
-            Polygon pl = gf.createPolygon(geomWord);
+            Polygon pl = null;
+         //   pl = gf.createPolygon(geomWord);
 
             ls = new ArrayList<String>();
             ls.add("" + pl.getArea());
@@ -912,7 +917,7 @@ public class SoftKeyboard extends InputMethodService
 
         return -1.0;
 
-    }
+    }*/
 
     BitSet StringHashEng (String typed){
         Map<Character , Integer > bitNumber = new HashMap<Character, Integer>();

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/White-team.iml" filepath="$PROJECT_DIR$/White-team.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SoftKeyboard2.iml" filepath="$PROJECT_DIR$/SoftKeyboard2.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/jts/jts.iml" filepath="$PROJECT_DIR$/jts/jts.iml" />
     </modules>
