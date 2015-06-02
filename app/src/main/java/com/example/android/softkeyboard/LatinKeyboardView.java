@@ -40,9 +40,13 @@ public class LatinKeyboardView extends KeyboardView {
         if (key.codes[0] == Keyboard.KEYCODE_CANCEL) {
             getOnKeyboardActionListener().onKey(KEYCODE_OPTIONS, null);
             return true;
-        } else {
-            return super.onLongPress(key);
         }
+
+        else {
+            return super.onLongPress(key);
+            //return true;
+        }
+
     }
 
     void setSubtypeOnSpaceKey(final InputMethodSubtype subtype) {

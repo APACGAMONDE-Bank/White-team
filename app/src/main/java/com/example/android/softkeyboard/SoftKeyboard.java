@@ -866,6 +866,7 @@ public class SoftKeyboard extends InputMethodService
         } catch (Exception e) {
             e.printStackTrace();
         }
+        }
 
         try {
             Keygeometry = new JSONObject(keyJsonString);

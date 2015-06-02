@@ -89,9 +89,10 @@
         <Key android:keyLabel="т"/>
         <Key android:keyLabel="ь"/>
         <Key android:keyLabel="б" />
-        <Key android:keyLabel="ю'"/>
-        <Key android:codes="19" android:isRepeatable="true" android:keyLabel="↑"/>
-        <Key android:codes="126" android:keyLabel="~" android:keyEdgeFlags="right"/>
+        <Key android:keyLabel="ю"/>
+        <Key android:codes="126" android:keyLabel="~" />
+        <Key android:codes="19" android:isRepeatable="true" android:keyLabel="↑" android:keyWidth="10%p"/>
+        <Key android:codes="126" android:keyLabel="~" android:keyEdgeFlags="right" android:keyWidth="10%p"/>
     </Row>
 
     <Row android:rowEdgeFlags="bottom">
@@ -101,9 +102,9 @@
             android:keyWidth="30%p" android:isRepeatable="true"/>
         <Key android:codes="-320" android:keyLabel="Cp"/>
         <Key android:codes="-321" android:keyLabel="Ps"/>
-        <Key android:codes="21" android:isRepeatable="true" android:keyLabel="←"/>
-        <Key android:codes="20" android:isRepeatable="true" android:keyLabel="↓"/>
-        <Key android:codes="22" android:isRepeatable="true" android:keyLabel="→" android:keyEdgeFlags="right"/>
+        <Key android:codes="21" android:isRepeatable="true" android:keyLabel="←" android:keyWidth="10%p"/>
+        <Key android:codes="20" android:isRepeatable="true" android:keyLabel="↓" android:keyWidth="10%p"/>
+        <Key android:codes="22" android:isRepeatable="true" android:keyLabel="→" android:keyWidth="10%p" android:keyEdgeFlags="right"/>
     </Row>
 </Keyboard>
     
