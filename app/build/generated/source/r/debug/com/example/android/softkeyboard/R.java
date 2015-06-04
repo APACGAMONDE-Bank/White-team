@@ -45,7 +45,8 @@ public final class R {
         public static final int input=0x7f030000;
         public static final int keyboard_popup=0x7f030001;
         public static final int popup_preview_layout=0x7f030002;
-        public static final int qwerty=0x7f030003;
+        public static final int preview=0x7f030003;
+        public static final int qwerty=0x7f030004;
     }
     public static final class raw {
         public static final int cpp=0x7f050000;
@@ -70,11 +71,15 @@ public final class R {
     public static final class xml {
         public static final int abc=0x7f040000;
         public static final int ime_preferences=0x7f040001;
-        public static final int method=0x7f040002;
-        public static final int preview=0x7f040003;
-        public static final int qwerty=0x7f040004;
-        public static final int russian=0x7f040005;
-        public static final int symbols=0x7f040006;
-        public static final int symbols_shift=0x7f040007;
+        public static final int left_brackets=0x7f040002;
+        public static final int method=0x7f040003;
+        public static final int preview=0x7f040004;
+        public static final int qwerty=0x7f040005;
+        public static final int right_brackets=0x7f040006;
+        public static final int russian=0x7f040007;
+        public static final int slashes=0x7f040008;
+        public static final int spec_smb=0x7f040009;
+        public static final int symbols=0x7f04000a;
+        public static final int symbols_shift=0x7f04000b;
     }
 }

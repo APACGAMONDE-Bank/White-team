@@ -9,6 +9,7 @@
     >
     <com.example.android.softkeyboard.LatinKeyboardView
         xmlns:latin="http://schemas.android.com/apk/res/com.android.inputmethod.latin"
+        android:keyBackground="@drawable/btn_keyboard_key_dark_normal"
         android:keyPreviewLayout="@layout/popup_preview_layout"
         android:id="@+id/LatinKeyboardBaseView"
         android:layout_alignParentBottom="true"

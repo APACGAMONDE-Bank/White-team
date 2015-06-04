@@ -17,13 +17,12 @@
 ** limitations under the License.
 */
 -->
-
 <Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
     android:keyWidth="10%p"
     android:horizontalGap="0px"
     android:verticalGap="0px"
     android:keyHeight="@dimen/key_height"
-
+    android:keyBackground="@drawable/btn_keyboard_key_dark_normal"
     >
 
     <Row>
@@ -55,7 +54,7 @@
         <Key android:codes="105" android:keyLabel="i"/>
         <Key android:codes="111" android:keyLabel="o"/>
         <Key android:codes="112" android:keyLabel="p"/>
-        <Key android:codes="91" android:keyLabel="[" android:popupKeyboard="@xml/abc"/>
+        <Key android:codes="91" android:keyLabel="[" android:popupKeyboard="@xml/left_brackets"/>
         <Key android:codes="93" android:keyLabel="]" android:popupCharacters="B" />
         <Key android:codes="92" android:keyLabel="\\" android:keyEdgeFlags="right"/>
     </Row>

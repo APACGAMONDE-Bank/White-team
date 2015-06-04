@@ -54,13 +54,13 @@
         <Key android:codes="105" android:keyLabel="i"/>
         <Key android:codes="111" android:keyLabel="o"/>
         <Key android:codes="112" android:keyLabel="p"/>
-        <Key android:codes="91" android:keyLabel="[" android:popupKeyboard="@layout/keyboard_popup" android:popupCharacters="[(&lt;{" />
-        <Key android:codes="93" android:keyLabel="]" android:popupKeyboard="@layout/keyboard_popup" android:popupCharacters="])&gt;}" />
-        <Key android:codes="92" android:keyLabel="\\" android:keyEdgeFlags="right"/>
+        <Key android:codes="91" android:keyLabel="[" android:popupKeyboard="@xml/left_brackets" />
+        <Key android:codes="93" android:keyLabel="]" android:popupKeyboard="@xml/right_brackets" />
+        <Key android:codes="92" android:keyLabel="\\"  android:popupKeyboard="@xml/slashes" android:keyEdgeFlags="right"/>
     </Row>
     
     <Row>
-        <Key android:codes="113" android:keyLabel="ctrl" android:keyEdgeFlags="left" android:keyWidth="18%p"/>
+        <Key android:codes="0" android:keyLabel="ctrl" android:keyEdgeFlags="left" android:keyWidth="18%p"/>
 
         <Key android:codes="97" android:keyLabel="a" />
         <Key android:codes="115" android:keyLabel="s"/>
@@ -92,7 +92,7 @@
         <Key android:codes="46" android:keyLabel="." />
         <Key android:codes="39" android:keyLabel="\'"/>
         <Key android:codes="19" android:isRepeatable="true" android:keyLabel="↑" android:keyWidth="10%p" />
-        <Key android:codes="126" android:keyLabel="~" android:keyWidth="10%p" android:keyEdgeFlags="right"/>
+        <Key android:codes="126" android:keyLabel="Smb" android:popupKeyboard="@xml/spec_smb" android:keyWidth="10%p" android:keyEdgeFlags="right"/>
     </Row>
     
     <Row android:rowEdgeFlags="bottom">

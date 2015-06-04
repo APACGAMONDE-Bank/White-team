@@ -2,5 +2,6 @@
 <android.inputmethodservice.Keyboard xmlns:android="http://schemas.android.com/apk/res/android"
     android:keyWidth="8%p"
     android:keyHeight="8%p"
+    android:background="@drawable/btn_keyboard_key_dark_normal"
     >
 </android.inputmethodservice.Keyboard>

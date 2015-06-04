@@ -139,7 +139,7 @@ public class SoftKeyboard extends InputMethodService
         mEnglishKeyboard = new LatinKeyboard(this, R.xml.qwerty);
         mSymbolsKeyboard = new LatinKeyboard(this, R.xml.symbols);
         mSymbolsShiftedKeyboard = new LatinKeyboard(this, R.xml.symbols_shift);
-        mQwertyKeyboard = mRussianKeyboard;
+        mQwertyKeyboard = mEnglishKeyboard;
     }
     
     /**
@@ -669,8 +669,9 @@ public class SoftKeyboard extends InputMethodService
             case -320:
                 //Обработчик для клавиши копирования
 
-                mc.copyToClipboard(getApplicationContext(), ic1.getSelectedText(0).toString());
-
+                if(ic1.getSelectedText(0)!=null) {
+                    mc.copyToClipboard(getApplicationContext(), ic1.getSelectedText(0).toString());
+                }
                 return;
             case -321:
                 //Обработчик для клавиши вставки
@@ -739,6 +740,7 @@ public class SoftKeyboard extends InputMethodService
                 list.add(mComposing.toString());
                 setSuggestions(list, true, true);
             } else {
+
                 setSuggestions(null, false, false);
             }
         }
@@ -756,6 +758,7 @@ public class SoftKeyboard extends InputMethodService
                 // suggestions.add("ololo");
                 // suggestions.add("azazaz");
                 // suggestions.add("wtf");}
+
                 List<String> wordGeomPar=cppSujjestHash(mComposing.toString());
                 if(wordGeomPar!=null){
                     suggestions.addAll(wordGeomPar);
@@ -963,7 +966,7 @@ public class SoftKeyboard extends InputMethodService
 
         BitSet typedB = new BitSet(13);
         char[] typedC = typed.toCharArray();
-        Log.d("words",typed) ;
+
         for(int i = 0; i< typed.length();i++){
             try {
                 typedB.set(bitNumber.get(typedC[i]).intValue(),true);
@@ -974,7 +977,7 @@ public class SoftKeyboard extends InputMethodService
             }
 
         }
-
+        Log.d("words",typedB.toString()) ;
     return typedB;
     }
 
@@ -982,7 +985,7 @@ public class SoftKeyboard extends InputMethodService
     List<String> tLS = null;
        List<String> sujjest = new ArrayList<String>();
        BitSet typedB = StringHashEng(typed.toLowerCase());
-
+       Log.d("words",typedB.toString()) ;
        diff_match_patch diff = new diff_match_patch();
        LinkedList<diff_match_patch.Diff> temp_diff = null;
        for(int k = 0; k<14;k++) {
@@ -1005,7 +1008,7 @@ public class SoftKeyboard extends InputMethodService
                        }
 
                    }
-                   if (abs(tw.length() - typed.length()) <= 1) {
+                   if (abs(tw.length() - typed.length()) <= 2) {
                        sujjest.add(tLS.get(i));
                    }
                }
