@@ -60,7 +60,7 @@
     </Row>
     
     <Row>
-        <Key android:codes="113" android:keyLabel="ctrl" android:keyEdgeFlags="left" android:keyWidth="18%p"/>
+        <Key android:codes="113" android:keyLabel="ctrl" android:isModifier="true" android:keyEdgeFlags="left" android:keyWidth="18%p"/>
 
         <Key android:codes="97" android:keyLabel="a" />
         <Key android:codes="115" android:keyLabel="s"/>
