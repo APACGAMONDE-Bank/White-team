@@ -183,8 +183,8 @@ public class SoftKeyboard extends InputMethodService
         // Reset our state.  We want to do this even if restarting, because
         // the underlying state of the text editor could have changed in any way.
         mComposing.setLength(0);
-        setCandidatesViewShown(true);
-        
+     //   setCandidatesViewShown(true);
+
         if (!restarting) {
             // Clear shift states.
             mMetaState = 0;
@@ -374,7 +374,7 @@ public class SoftKeyboard extends InputMethodService
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
+        updateCandidates();
 
         }
 
@@ -1141,6 +1141,9 @@ public class SoftKeyboard extends InputMethodService
             // we will just commit the current text.
 
             commitTyped(getCurrentInputConnection(),mCandidateView.mSuggestions.get(index));
+        }
+        else{
+            getCurrentInputConnection().commitText(mCandidateView.mSuggestions.get(index),0);
         }
     }
     
