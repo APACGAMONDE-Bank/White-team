@@ -1,0 +1,8 @@
+org/
+libs/
+jts/
+diffutils/
+build/
+.idea/
+.gradle/
+app/build
