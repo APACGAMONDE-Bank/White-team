@@ -742,7 +742,22 @@ public class SoftKeyboard extends InputMethodService
                 setSuggestions(list, true, true);
             } else {
 
-                setSuggestions(null, false, false);
+                ArrayList<String> stringList = new ArrayList<String>();
+                stringList.add("!");
+                stringList.add("?");
+                stringList.add(",");
+                stringList.add("\"");
+                stringList.add("\'");
+                stringList.add(":");
+                stringList.add(";");
+                stringList.add("(");
+                stringList.add(")");
+                stringList.add("-");
+                stringList.add("/");
+                stringList.add("@");
+                stringList.add("_");
+                setSuggestions(stringList, true, true);
+               // setSuggestions(null, false, false);
             }
         }
     }
