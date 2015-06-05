@@ -756,6 +756,18 @@ public class SoftKeyboard extends InputMethodService
                 stringList.add("/");
                 stringList.add("@");
                 stringList.add("_");
+                stringList.add("{");
+                stringList.add("}");
+                stringList.add("<");
+                stringList.add(">");
+                stringList.add("[");
+                stringList.add("]");
+                stringList.add("^");
+                stringList.add("&");
+                stringList.add("%");
+                stringList.add("#");
+                stringList.add("*");
+
                 setSuggestions(stringList, true, true);
                // setSuggestions(null, false, false);
             }
@@ -1169,4 +1181,12 @@ public class SoftKeyboard extends InputMethodService
     
     public void onRelease(int primaryCode) {
     }
+
+    @Override public void onComputeInsets(InputMethodService.Insets outInsets) {
+        super.onComputeInsets(outInsets);
+        if (!isFullscreenMode()) {
+            outInsets.contentTopInsets = outInsets.visibleTopInsets;
+        }
+    }
+
 }

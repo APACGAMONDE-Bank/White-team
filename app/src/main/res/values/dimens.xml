@@ -20,6 +20,6 @@
 
 <resources>
     <dimen name="key_height">50dip</dimen>
-    <dimen name="candidate_font_height">30dip</dimen>
+    <dimen name="candidate_font_height">25dip</dimen>
     <dimen name="candidate_vertical_padding">0sp</dimen>
 </resources>
